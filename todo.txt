@@ -1,0 +1,11 @@
+------------------
+------------------
+------------------adding products plus respected photos
+------------------each section must open in diff page
+------------------ 
+------------------animations adding
+------------------removing gap
+------------------adding images
+------------------make it water theme 
+------------------contact info 
+------------------
