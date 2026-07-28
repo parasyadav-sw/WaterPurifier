@@ -112,13 +112,13 @@ export const Navbar: React.FC = () => {
       <div className="wrap h-full flex items-center justify-between">
         
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2.5 font-bold text-navy text-xl tracking-tight">
+        <Link to="/" className="flex items-center gap-2.5 font-bold text-navy text-xl tracking-tight shrink-0">
           <span className="logo-mark" aria-hidden="true" />
           Aquapure
         </Link>
 
         {/* DESKTOP NAVIGATION LINKS */}
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Primary Navigation">
+        <nav className="hidden lg:flex items-center lg:gap-3 xl:gap-5 2xl:gap-8 shrink-0" aria-label="Primary Navigation">
           {navItems.map((item) => (
             <div
               key={item.label}
@@ -130,7 +130,7 @@ export const Navbar: React.FC = () => {
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `text-[14.5px] font-semibold text-ink-soft hover:text-navy transition-colors ${
+                    `text-[13px] xl:text-[14px] 2xl:text-[14.5px] font-semibold text-ink-soft hover:text-navy transition-colors ${
                       isActive ? "text-navy font-bold border-b-2 border-teal pb-1" : ""
                     }`
                   }
@@ -139,7 +139,7 @@ export const Navbar: React.FC = () => {
                 </NavLink>
               ) : (
                 <button
-                  className={`text-[14.5px] font-semibold text-ink-soft hover:text-navy flex items-center gap-1 transition-colors ${
+                  className={`text-[13px] xl:text-[14px] 2xl:text-[14.5px] font-semibold text-ink-soft hover:text-navy flex items-center gap-1 transition-colors ${
                     activeDropdown === item.label ? "text-navy" : ""
                   }`}
                   aria-expanded={activeDropdown === item.label}
@@ -178,11 +178,11 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* CTA ACTIONS */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 shrink-0">
           <Link to="/book-water-test" className="hidden sm:inline-flex btn-primary btn-compact">
             Free Water Test
           </Link>
-          <Link to="/book-service" className="hidden md:inline-flex btn-secondary btn-compact">
+          <Link to="/book-service" className="hidden md:inline-flex lg:hidden xl:inline-flex btn-secondary btn-compact">
             Book Service
           </Link>
 
