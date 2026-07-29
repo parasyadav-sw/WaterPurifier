@@ -62,9 +62,7 @@ export const Home: React.FC = () => {
 
         {/* Content Container with smooth fade-in animations */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          variants={cardVariants}
           className="relative z-20 w-full max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center justify-center text-white"
         >
           <span className="hero-badge inline-flex items-center gap-2 bg-success/15 border border-success/30 text-success text-[12.5px] font-bold py-2 px-5 rounded-full mb-6 backdrop-blur-sm animate-fade-in">
@@ -83,7 +81,7 @@ export const Home: React.FC = () => {
             Aquapure's intelligent seven-stage RO and UV system strips out lead, microplastics, and arsenic — while restoring the vital alkaline minerals your body needs to thrive.
           </p>
           
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-12 sm:mt-14 md:mt-16">
             <Link to="/products" className="btn-primary flex items-center gap-2 text-sm sm:text-base px-6 py-3">
               Shop Systems <ArrowRight className="w-4 h-4" />
             </Link>
