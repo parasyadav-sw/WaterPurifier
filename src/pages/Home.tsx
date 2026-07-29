@@ -60,28 +60,12 @@ export const Home: React.FC = () => {
         {/* Subtle dark overlay for text readability (45% opacity) */}
         <div className="absolute inset-0 bg-slate-950/45 z-10 pointer-events-none" />
 
-        {/* Content Container with smooth fade-in animations */}
+        {/* Content Container (containing only the buttons positioned in the lower-middle area) */}
         <motion.div
           variants={cardVariants}
-          className="relative z-20 w-full max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center justify-center text-white"
+          className="relative z-20 w-full max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center justify-end pb-16 md:pb-24 lg:pb-28 text-white h-full"
         >
-          <span className="hero-badge inline-flex items-center gap-2 bg-success/15 border border-success/30 text-success text-[12.5px] font-bold py-2 px-5 rounded-full mb-6 backdrop-blur-sm animate-fade-in">
-            <span className="w-2.5 h-2.5 rounded-full bg-success animate-ping" />
-            Lab-Verified, 99.9% Contaminant Removal
-          </span>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight tracking-tight mb-6 drop-shadow-sm">
-            Pure water, <br />
-            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              engineered for life
-            </span>
-          </h1>
-          
-          <p className="text-base sm:text-lg md:text-xl text-slate-200/95 leading-relaxed mb-10 max-w-3xl font-medium font-accent drop-shadow-sm">
-            Aquapure's intelligent seven-stage RO and UV system strips out lead, microplastics, and arsenic — while restoring the vital alkaline minerals your body needs to thrive.
-          </p>
-          
-          <div className="flex flex-wrap items-center justify-center gap-4 mt-12 sm:mt-14 md:mt-16">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <Link to="/products" className="btn-primary flex items-center gap-2 text-sm sm:text-base px-6 py-3">
               Shop Systems <ArrowRight className="w-4 h-4" />
             </Link>
