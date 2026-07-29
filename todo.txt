@@ -1,7 +1,7 @@
 ------------------
 ------------------
 ------------------adding products plus respected photos
-------------------each section must open in diff page
+------------------
 ------------------ 
 ------------------animations adding
 ------------------removing gap
