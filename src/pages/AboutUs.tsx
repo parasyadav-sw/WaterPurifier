@@ -22,36 +22,28 @@ export const AboutUs: React.FC = () => {
       {/* Grid of Values */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto mb-16">
         <div className="p-6 bg-mist/20 border border-line/10 rounded-radius flex flex-col gap-3 shadow-sm text-center items-center">
-          <div className="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center text-teal">
-            <Target className="w-6 h-6" />
-          </div>
+          <img src="/images/about/manufacturing.jpg" alt="Our Mission" className="w-full h-32 object-cover rounded-radius-sm" />
           <h3 className="text-base font-bold text-navy">Our Mission</h3>
           <p className="text-[13px] text-ink-soft leading-relaxed">
             Eliminate dissolved toxic chemicals and single-use plastics from every household tap, delivering lab-tested purity.
           </p>
         </div>
         <div className="p-6 bg-mist/20 border border-line/10 rounded-radius flex flex-col gap-3 shadow-sm text-center items-center">
-          <div className="w-12 h-12 bg-gold/10 rounded-full flex items-center justify-center text-gold">
-            <ShieldCheck className="w-6 h-6" />
-          </div>
+          <img src="/images/about/quality-inspection.jpg" alt="Engineering Focus" className="w-full h-32 object-cover rounded-radius-sm" />
           <h3 className="text-base font-bold text-navy">Engineering Focus</h3>
           <p className="text-[13px] text-ink-soft leading-relaxed">
             Utilize hyper-filtration membranes, stainless steel UV-C chambers, and active mineral reintroduction to maintain mineral profiles.
           </p>
         </div>
         <div className="p-6 bg-mist/20 border border-line/10 rounded-radius flex flex-col gap-3 shadow-sm text-center items-center">
-          <div className="w-12 h-12 bg-success-bg rounded-full flex items-center justify-center text-success">
-            <Heart className="w-6 h-6" />
-          </div>
+          <img src="/images/about/customer-support.jpg" alt="Trust & Service" className="w-full h-32 object-cover rounded-radius-sm" />
           <h3 className="text-base font-bold text-navy">Trust & Service</h3>
           <p className="text-[13px] text-ink-soft leading-relaxed">
             Support every purchase with proactive cartridge shipments, on-site installations, and responsive customer help lines.
           </p>
         </div>
         <div className="p-6 bg-mist/20 border border-line/10 rounded-radius flex flex-col gap-3 shadow-sm text-center items-center">
-          <div className="w-12 h-12 bg-teal/10 rounded-full flex items-center justify-center text-teal">
-            <Award className="w-6 h-6" />
-          </div>
+          <img src="/images/about/team-engineers.jpg" alt="Certifications" className="w-full h-32 object-cover rounded-radius-sm" />
           <h3 className="text-base font-bold text-navy">Certifications</h3>
           <p className="text-[13px] text-ink-soft leading-relaxed">
             Conforms to NSF standard 58, ISO 9001 quality audits, and IS 16240 national safety certifications.

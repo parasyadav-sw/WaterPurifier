@@ -26,9 +26,16 @@ export const Testimonials: React.FC = () => {
           <div key={idx} className="p-8 bg-paper border border-line/10 rounded-radius shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300">
             <p className="text-[15px] text-ink-soft italic leading-relaxed mb-6">"{test.text}"</p>
             <div className="flex items-center justify-between border-t border-line/5 pt-4 mt-auto">
-              <div className="flex flex-col">
-                <span className="font-bold text-navy text-[14.5px]">{test.name}</span>
-                <span className="text-[12px] text-ink-soft">{test.city}</span>
+              <div className="flex items-center">
+                <img 
+                  src={`/images/about/avatar-${(idx % 4) + 1}.jpg`} 
+                  alt={test.name} 
+                  className="w-10 h-10 rounded-full object-cover mr-3"
+                />
+                <div className="flex flex-col">
+                  <span className="font-bold text-navy text-[14.5px]">{test.name}</span>
+                  <span className="text-[12px] text-ink-soft">{test.city}</span>
+                </div>
               </div>
               <div className="flex gap-0.5 text-gold">
                 {Array.from({ length: test.rating }).map((_, i) => (

@@ -4,6 +4,7 @@ export interface Accessory {
   price: string;
   tagline: string;
   description: string;
+  image: string;
   features: string[];
   compatibility: string;
   lifespan: string;
@@ -18,6 +19,7 @@ export const accessories: Accessory[] = [
     price: "₹2,499",
     tagline: "Thin-Film Composite membrane rejects 97% of heavy metals and dissolved solids.",
     description: "The primary reverse osmosis filter core. Utilizes hyper-filtration pores measuring 0.0001 microns to remove dissolved lead, fluoride, nitrates, and hard calcium/magnesium salts.",
+    image: "/images/accessories/ro-membrane.jpg",
     features: [
       "80 Gallons Per Day throughput capacity",
       "Thin-Film Composite (TFC) spiral-wound layout",
@@ -45,6 +47,7 @@ export const accessories: Accessory[] = [
     price: "₹850",
     tagline: "High-grade compressed coconut carbon removes chlorine and organic smell.",
     description: "A secondary cartridge made of compressed activated carbon granules. Adsorbs volatile organic chemicals (VOCs), residual chlorine, and bad tastes/smells, shielding the RO membrane from oxidation.",
+    image: "/images/accessories/carbon-cartridge.jpg",
     features: [
       "High adsorption capacity",
       "Blocks chlorine, chlorine compounds (THMs), and pesticides",
@@ -71,6 +74,7 @@ export const accessories: Accessory[] = [
     price: "₹450",
     tagline: "Captures sand, clay, mud, and rust scales at the inlet mainline.",
     description: "Constructed of layered spun polypropylene fibers. Traps physical suspended matter like mud, clay, rust flakes, and sand, preventing blockages in subsequent carbon filters.",
+    image: "/images/accessories/sediment-filter.jpg",
     features: [
       "Multi-layered density captures particles of varying sizes",
       "High dirt-holding capacity",
@@ -97,6 +101,7 @@ export const accessories: Accessory[] = [
     price: "₹1,200",
     tagline: "Philips double-ended germicidal ultraviolet lamp.",
     description: "Exposes passing water to 253.7nm UV light rays. Disrupts pathogen DNA to eliminate bacteria, viruses, and microbial cysts without adding chemical residues.",
+    image: "/images/accessories/uv-lamp.jpg",
     features: [
       "Emits shortwave UV radiation with 253.7nm peak",
       "Quartz glass envelope resists high-temp wear",
@@ -123,6 +128,7 @@ export const accessories: Accessory[] = [
     price: "₹2,800",
     tagline: "Quiet, high-pressure pump drives reverse osmosis membrane filtration.",
     description: "A premium diaphragm pump that provides the 80 psi pressure needed to push water through the dense RO membrane pores. Delivers stable pressure with minimal noise and vibrations.",
+    image: "/images/accessories/booster-pump.jpg",
     features: [
       "High performance diaphragm layout",
       "Whisper-quiet motor operation",
@@ -150,6 +156,7 @@ export const accessories: Accessory[] = [
     price: "₹350",
     tagline: "Fine-tune output mineral balance using control valves.",
     description: "Allows manual adjustments to the mineral balance of output water by bypassing a controlled stream of clean carbon-filtered water, raising final mineral levels.",
+    image: "/images/accessories/tds-controller.jpg",
     features: [
       "Fine needle valve adjustments",
       "Durable food-grade plastic block",
@@ -176,6 +183,7 @@ export const accessories: Accessory[] = [
     price: "₹1,800",
     tagline: "Stores purified water under pressure for fast, gravity-independent dispensing.",
     description: "Under-sink storage tank made of food-grade ABS plastic shell with an internal rubber bladder. Stores purified water under pressure for fast, constant dispensing.",
+    image: "/images/accessories/storage-tank.jpg",
     features: [
       "Double-walled food-grade plastic storage shell",
       "Premium stainless steel connection thread",
@@ -202,6 +210,7 @@ export const accessories: Accessory[] = [
     price: "₹250",
     tagline: "Stops the pump automatically when the storage tank is full.",
     description: "A micro-switch float valve mounted inside the storage tank. Automatically cuts off power to the booster pump when water reaches the top, preventing overflows.",
+    image: "/images/accessories/float-valve.jpg",
     features: [
       "Waterproof micro-switch capsule",
       "Corrosion-resistant plastic float ball",
@@ -228,6 +237,7 @@ export const accessories: Accessory[] = [
     price: "₹300",
     tagline: "Food-grade LLDPE tubing for leak-free connections.",
     description: "A roll of 10 meters of high-density Linear Low-Density Polyethylene tubing. Provides flexible, leak-free routing for inlet water, drain lines, and faucet loops.",
+    image: "/images/accessories/pipe-kit.jpg",
     features: [
       "Food-grade LLDPE structure",
       "Resists cracking, pressure, and chemical corrosion",
@@ -254,6 +264,7 @@ export const accessories: Accessory[] = [
     price: "₹1,250",
     tagline: "Elegant lead-free gooseneck faucet for under-sink setups.",
     description: "A premium kitchen faucet mounted directly on the countertop. Features a high-arc gooseneck spout and single-lever dial valve for dispensing purified water.",
+    image: "/images/accessories/tap.jpg",
     features: [
       "Lead-free brushed chrome plating",
       "360-degree rotating gooseneck spout",
@@ -280,6 +291,7 @@ export const accessories: Accessory[] = [
     price: "₹950",
     tagline: "Reintroduces essential calcium, magnesium, and potassium ions.",
     description: "An inline cartridge loaded with natural mineral stones. Restores trace calcium (Ca++), magnesium (Mg++), potassium (K+), and sodium (Na+) ions, balancing pH and improving taste.",
+    image: "/images/accessories/mineral-cartridge.jpg",
     features: [
       "Mineral media shell",
       "Restores essential electrolytes",

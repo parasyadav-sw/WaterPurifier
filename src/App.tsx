@@ -10,12 +10,8 @@ import { Products } from './pages/Products';
 import { ProductDetails } from './pages/ProductDetails';
 import { Accessories } from './pages/Accessories';
 import { Services } from './pages/Services';
-import { Technologies } from './pages/Technologies';
 import { WaterProblems } from './pages/WaterProblems';
 import { Industries } from './pages/Industries';
-import { Gallery } from './pages/Gallery';
-import { Blog } from './pages/Blog';
-import { BlogDetails } from './pages/BlogDetails';
 import { AboutUs } from './pages/AboutUs';
 import { Contact } from './pages/Contact';
 import { BookService } from './pages/BookService';
@@ -48,14 +44,9 @@ export const App: React.FC = () => {
           <Route path="/accessories/:slug" element={<Accessories />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<Services />} />
-          <Route path="/technologies" element={<Technologies />} />
-          <Route path="/technologies/:slug" element={<Technologies />} />
           <Route path="/water-problems" element={<WaterProblems />} />
           <Route path="/industries" element={<Industries />} />
           <Route path="/industries/:slug" element={<Industries />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogDetails />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/book-service" element={<BookService />} />

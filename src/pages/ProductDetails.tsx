@@ -81,23 +81,25 @@ export const ProductDetails: React.FC = () => {
           {/* Gallery & Video (Left Column) */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             
-            {/* Gallery placeholder images */}
-            <div className="bg-mist/30 border border-line/10 rounded-radius overflow-hidden p-8 flex items-center justify-center min-h-[340px] md:min-h-[420px]">
-              <svg viewBox="0 0 200 200" fill="none" className="max-w-[280px] w-full">
-                <rect x="55" y="30" width="90" height="140" rx="12" fill="var(--mist)" stroke="var(--teal)" strokeWidth="2.5" />
-                <line x1="55" y1="75" x2="145" y2="75" stroke="var(--teal)" strokeWidth="2" />
-                <circle cx="75" cy="52" r="8" fill="var(--gold)" opacity="0.8" />
-                <circle cx="100" cy="52" r="8" fill="var(--teal)" opacity="0.8" />
-                <circle cx="125" cy="52" r="8" fill="var(--navy)" opacity="0.8" />
-                <rect x="75" y="90" width="50" height="60" rx="6" fill="var(--paper)" />
-              </svg>
+            {/* Main Product Image */}
+            <div className="bg-mist/30 border border-line/10 rounded-radius overflow-hidden flex items-center justify-center min-h-[340px] md:min-h-[420px]">
+              <img 
+                src={product.image} 
+                alt={product.name}
+                className="w-full h-full object-cover"
+              />
             </div>
 
-            {/* Gallery thumbs */}
+            {/* Gallery thumbnails */}
             <div className="grid grid-cols-3 gap-4">
               {product.gallery.map((img, idx) => (
-                <div key={idx} className="bg-mist/20 border border-line/5 rounded-radius-sm p-4 h-24 flex items-center justify-center cursor-pointer hover:border-teal transition-all">
-                  <span className="text-xs font-bold text-ink-soft uppercase">{img}</span>
+                <div key={idx} className="bg-mist/20 border border-line/5 rounded-radius-sm h-24 overflow-hidden cursor-pointer hover:border-teal transition-all">
+                  <img 
+                    src={img} 
+                    alt={`${product.name} view ${idx + 1}`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
               ))}
             </div>
@@ -389,6 +391,11 @@ export const ProductDetails: React.FC = () => {
             {relatedProducts.map((rel) => (
               <div key={rel.slug} className="bg-mist/35 border border-line/10 rounded-radius p-6 flex flex-col justify-between hover:shadow-sm transition-all duration-300">
                 <div>
+                  {rel.image && (
+                    <div className="h-32 rounded-radius-sm overflow-hidden mb-3">
+                      <img src={rel.image} alt={rel.name} className="w-full h-full object-cover" loading="lazy" />
+                    </div>
+                  )}
                   <span className="card-tag text-[10px] font-bold text-teal-deep uppercase tracking-wider">{rel.tag}</span>
                   <h4 className="text-[16px] font-bold text-navy mt-1 mb-2 hover:text-teal transition-colors">
                     <Link to={`/products/${rel.slug}`}>{rel.name}</Link>

@@ -6,6 +6,7 @@ export interface Product {
   tag: string;
   tagline: string;
   description: string;
+  image: string;
   gallery: string[];
   video: string;
   features: string[];
@@ -28,7 +29,8 @@ export const products: Product[] = [
     tag: "Essential Home",
     tagline: "Ultra-pure drinking water for health-conscious households.",
     description: "Aquapure's Domestic RO+UV system is engineered to handle municipal and municipal-borewell blends, delivering pure, safe drinking water containing active calcium and magnesium mineral enhancements.",
-    gallery: ["countertop-detail-1", "countertop-detail-2", "countertop-detail-3"],
+    image: "/images/products/domestic-ro-filter.jpg",
+    gallery: ["/images/products/domestic-ro-filter.jpg", "/images/products/countertop-pro.jpg", "/images/products/whole-home-system.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "7-Stage RO + UV + Active Mineralizer technology",
@@ -88,7 +90,8 @@ export const products: Product[] = [
     tag: "Offices & Cafes",
     tagline: "High-capacity purification for office floors, clinics, and restaurants.",
     description: "Designed for commercial applications requiring high volume throughput without compromising mineral quality. Delivers continuous, high-volume flow under heavy daily workloads.",
-    gallery: ["commercial-detail-1", "commercial-detail-2"],
+    image: "/images/products/commercial-ro-system.jpg",
+    gallery: ["/images/products/commercial-ro-system.jpg", "/images/products/industrial-water-treatment.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "Dual RO Membrane high-pressure throughput",
@@ -147,7 +150,8 @@ export const products: Product[] = [
     tag: "Heavy Industry",
     tagline: "Large-scale process water purification for factories and laboratories.",
     description: "High-spec industrial filtration plant constructed with heavy-gauge stainless steel skid framing, automated sand/carbon backwash media, and multi-stage pressure indicators.",
-    gallery: ["industrial-detail-1", "industrial-detail-2"],
+    image: "/images/products/industrial-water-treatment.jpg",
+    gallery: ["/images/products/industrial-water-treatment.jpg", "/images/products/commercial-ro-system.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "Industrial sand and carbon media filter vessels with manual backwash valves",
@@ -205,7 +209,8 @@ export const products: Product[] = [
     tag: "Hidden Fit",
     tagline: "Out of sight, ultra-secure RO filtration.",
     description: "Fits inside your kitchen cabinet under the sink. Paired with a sleek, chrome gooseneck faucet mounted directly beside your standard tap.",
-    gallery: ["undersink-detail-1", "undersink-detail-2"],
+    image: "/images/products/under-sink-ro.jpg",
+    gallery: ["/images/products/under-sink-ro.jpg", "/images/products/countertop-pro.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "Under-cabinet placement saves counter space",
@@ -262,7 +267,8 @@ export const products: Product[] = [
     tag: "Microbe Protection",
     tagline: "Stops viruses and bacteria without chemical residues.",
     description: "Designed for areas with low TDS (municipal water supply) that carry bacterial risk. This system sterilizes tap water using UV radiation while keeping all natural minerals.",
-    gallery: ["uv-detail-1"],
+    image: "/images/products/uv-disinfection.jpg",
+    gallery: ["/images/products/uv-disinfection.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "High-power 11W Philips UV Sterilization tube",
@@ -318,7 +324,8 @@ export const products: Product[] = [
     tag: "Zero Electricity",
     tagline: "Non-electric gravity-fed cyst removal.",
     description: "Perfect for clean municipal tap water that has occasional muddy turbidity or biological contaminants. Operates without electricity or running water pressure.",
-    gallery: ["uf-detail-1"],
+    image: "/images/products/uf-gravity-filter.jpg",
+    gallery: ["/images/products/uf-gravity-filter.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "Zero electricity usage — operates entirely on gravity feed",
@@ -372,7 +379,8 @@ export const products: Product[] = [
     tag: "Zero Setup",
     tagline: "No drilling, no plumbers, instant table placement.",
     description: "Perfect for renters or smaller apartments. Sits neatly on your kitchen counter, connecting directly to your existing faucet via a selector valve knob.",
-    gallery: ["countertop-detail-1", "countertop-detail-2"],
+    image: "/images/products/countertop-pro.jpg",
+    gallery: ["/images/products/countertop-pro.jpg", "/images/products/domestic-ro-filter.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "Fitted with bypass diverter valve (attaches directly to sink faucet)",
@@ -426,7 +434,8 @@ export const products: Product[] = [
     tag: "Classic Wall Fit",
     tagline: "The aesthetic kitchen centerpiece with active alkaline balance.",
     description: "Aquapure's classic wall-mounted purifier features a transparent level indicator window, a glossy scratch-resistant faceplate, and 7 stages of active mineral balancing.",
-    gallery: ["wallmount-detail-1", "wallmount-detail-2"],
+    image: "/images/products/wall-mounted-premium.jpg",
+    gallery: ["/images/products/wall-mounted-premium.jpg", "/images/products/domestic-ro-filter.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "Stunning minimalist cabinet layout with status LEDs",
@@ -484,7 +493,8 @@ export const products: Product[] = [
     tag: "Complete Protection",
     tagline: "Purify every single tap in your household.",
     description: "Fitted directly to your primary overhead tank delivery line. Strains out suspended silt, sand, mud, and chlorine odors, providing soft, clean water to all showers, washrooms, and wash areas.",
-    gallery: ["wholehome-detail-1", "wholehome-detail-2"],
+    image: "/images/products/whole-home-system.jpg",
+    gallery: ["/images/products/whole-home-system.jpg", "/images/products/commercial-ro-system.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "Heavy-flow dual-housing mainline filtration",
@@ -536,7 +546,8 @@ export const products: Product[] = [
     tag: "Zero Hardness",
     tagline: "Stops scale deposits completely via automated ion exchange.",
     description: "An automatic water softener system containing high-capacity food-grade resin beads. It extracts hardness minerals (calcium and magnesium) and replaces them with sodium ions, preventing plumbing scale completely.",
-    gallery: ["softener-detail-1"],
+    image: "/images/products/water-softener.jpg",
+    gallery: ["/images/products/water-softener.jpg"],
     video: "videos/hero background.mp4",
     features: [
       "Automatic digital timer controller valve triggers regeneration cycles",

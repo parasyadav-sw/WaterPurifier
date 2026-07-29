@@ -116,11 +116,12 @@ export const Contact: React.FC = () => {
           </div>
 
           {/* Interactive Map placeholder */}
-          <div className="mt-auto border border-line/10 rounded-radius-sm overflow-hidden h-40 bg-mist-deep/30 flex items-center justify-center text-center p-4">
-            <span className="text-xs font-semibold text-ink-soft uppercase tracking-wider">
-              [ Interactive Map Location ] <br />
-              Koramangala 4th Block
-            </span>
+          <div className="mt-auto border border-line/10 rounded-radius-sm overflow-hidden h-40 bg-mist-deep/30">
+            <img 
+              src="/images/hero/water-testing.jpg" 
+              alt="Aquapure Office Location - Koramangala 4th Block" 
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 

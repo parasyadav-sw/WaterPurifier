@@ -33,6 +33,11 @@ export const Services: React.FC = () => {
             className="card bg-mist/35 border border-line/10 rounded-radius p-7 flex flex-col justify-between hover:shadow-md cursor-pointer hover:border-teal transition-all duration-300"
           >
             <div>
+              {svc.image && (
+                <div className="h-40 rounded-radius-sm overflow-hidden mb-4">
+                  <img src={svc.image} alt={svc.name} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
               <span className="card-tag text-[10px] font-bold text-teal-deep uppercase tracking-wider block">Service Category</span>
               <h3 className="text-lg font-bold text-navy mt-1 mb-2">{svc.name}</h3>
               <p className="text-[14px] text-ink-soft leading-relaxed mb-6 line-clamp-3">

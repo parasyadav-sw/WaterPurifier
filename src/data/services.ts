@@ -4,6 +4,7 @@ export interface Service {
   price: string;
   tagline: string;
   description: string;
+  image: string;
   features: string[];
   process: string[];
   faq: { q: string; a: string }[];
@@ -16,6 +17,7 @@ export const services: Service[] = [
     price: "₹500 (Free with new systems)",
     tagline: "Secure, leak-free wall mounting and line plumbing by verified experts.",
     description: "Our certified technicians ensure your new water purifier is mounted safely, connected securely to inlet and drain pipelines, and calibrated with correct flow rate and TDS outputs.",
+    image: "/images/services/installation-service.jpg",
     features: [
       "Secured wall bracket anchoring",
       "Leak-free inlet feed plumbing",
@@ -46,6 +48,7 @@ export const services: Service[] = [
     price: "Starts at ₹3,999 / year",
     tagline: "Complete peace of mind. Regular checks and free cartridge swaps.",
     description: "Our AMC packages ensure your system operates at peak filtration efficiency. Covers scheduled checkups, free replacements of sediment and carbon cartridges, and unlimited breakdown visits.",
+    image: "/images/services/amc-service.jpg",
     features: [
       "3 Scheduled maintenance checkups yearly",
       "Free replacements of sediment, carbon, and inline filters",
@@ -75,6 +78,7 @@ export const services: Service[] = [
     price: "₹350 (Diagnostics charge)",
     tagline: "Troubleshoot pump vibrations, sound issues, low flow rates, or taste changes.",
     description: "Is your water tasting different, flowing slowly, or making loud noises? Our technicians run complete checks on booster pumps, auto shut-off valves, adapter power supplies, and membranes to repair the system using original spare parts.",
+    image: "/images/services/repair-service.jpg",
     features: [
       "Diagnostics of electrical and pressure faults",
       "Booster pump repair or replacement",
@@ -105,6 +109,7 @@ export const services: Service[] = [
     price: "₹150 (On-site) / ₹1,200 (Lab Analysis)",
     tagline: "Accurate TDS, pH, hardness, and heavy metal testing.",
     description: "Get detailed water quality reports. On-site checks measure TDS and pH levels instantly. Our lab analysis covers heavy metals, chemical runoff, microplastics, and biological contamination.",
+    image: "/images/hero/water-testing.jpg",
     features: [
       "Instant TDS, pH, and temperature reports on-site",
       "Detailed lab analysis for lead, arsenic, iron, and fluorides",
@@ -134,6 +139,7 @@ export const services: Service[] = [
     price: "Starts at ₹850",
     tagline: "Replace worn-out sediment, carbon, and mineral filters.",
     description: "Keep your water tasting fresh and clean. We replace sediment filters, pre-carbon blocks, inline post-carbons, and mineral cartridges with genuine Aquapure parts to maintain filtration efficiency.",
+    image: "/images/accessories/sediment-filter.jpg",
     features: [
       "Replacement of external spun pre-filter",
       "Replacement of internal carbon blocks and sediment inline filters",
@@ -164,6 +170,7 @@ export const services: Service[] = [
     price: "₹299",
     tagline: "Fix drippings, connector leaks, or cracked filter housings.",
     description: "Water dripping from your purifier cabinet can damage wooden under-sink cabinets or clutter kitchen countertops. We patch split PE tubes, replace cracked housings, and fit secure quick-connect ports.",
+    image: "/images/services/repair-service.jpg",
     features: [
       "Replacement of split PE tubing",
       "Swapping cracked filter housings or seal rings",
@@ -194,6 +201,7 @@ export const services: Service[] = [
     price: "Custom Quote / On-site Survey",
     tagline: "High-capacity filtration setups for offices, clinics, and hotels.",
     description: "We design and install customized high-volume water purification systems for corporate office floors, factories, clinics, and hotel kitchens. Includes plumbing routing and pressure pumps.",
+    image: "/images/services/commercial-installation.jpg",
     features: [
       "Custom commercial plumbing layouts",
       "Setup of multi-membrane RO skids",
@@ -224,6 +232,7 @@ export const services: Service[] = [
     price: "₹599 (Guaranteed 4-hour response)",
     tagline: "Technician visit within 4 hours for breakdowns.",
     description: "Do you have a party planned or a clinic full of patients and need clean water immediately? Our emergency service prioritizes your repair request, sending a technician within 4 hours.",
+    image: "/images/services/emergency-service.jpg",
     features: [
       "Guaranteed technician arrival within 4 hours of booking",
       "Immediate troubleshooting of major system faults",

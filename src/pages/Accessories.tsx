@@ -33,6 +33,11 @@ export const Accessories: React.FC = () => {
             className="card bg-mist/35 border border-line/10 rounded-radius p-6 flex flex-col justify-between hover:shadow-md cursor-pointer hover:border-teal transition-all duration-300"
           >
             <div>
+              {acc.image && (
+                <div className="h-32 rounded-radius-sm overflow-hidden mb-3">
+                  <img src={acc.image} alt={acc.name} className="w-full h-full object-cover" loading="lazy" />
+                </div>
+              )}
               <span className="card-tag text-[10px] font-bold text-teal-deep uppercase tracking-wider">Spare Parts</span>
               <h3 className="text-[17px] font-bold text-navy mt-1 mb-2">
                 {acc.name}

@@ -159,6 +159,11 @@ export const Industries: React.FC = () => {
 
         {/* Right Details Column (4 Cols) */}
         <div className="md:col-span-4 bg-mist/20 border border-line/10 rounded-radius p-5 flex flex-col gap-5">
+          <img 
+            src={`/images/industries/${active.id}.jpg`} 
+            alt={active.name} 
+            className="w-full h-40 object-cover rounded-radius-sm"
+          />
           <div className="flex flex-col">
             <span className="text-[10px] font-bold text-ink-soft uppercase tracking-wider">Required Capacity</span>
             <span className="text-base font-extrabold text-navy mt-0.5">{active.capacity}</span>

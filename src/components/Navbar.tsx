@@ -77,18 +77,6 @@ export const Navbar: React.FC = () => {
       ]
     },
     {
-      label: "Technologies",
-      path: "/technologies",
-      dropdown: [
-        { label: "Reverse Osmosis (RO)", path: "/technologies/ro" },
-        { label: "Ultraviolet (UV)", path: "/technologies/uv" },
-        { label: "Ultra Filtration (UF)", path: "/technologies/uf" },
-        { label: "Activated Carbon", path: "/technologies/activated-carbon" },
-        { label: "Sediment Filtration", path: "/technologies/sediment-filter" },
-        { label: "Mineralization", path: "/technologies/mineral-cartridge" }
-      ]
-    },
-    {
       label: "Industries",
       path: "/industries",
       dropdown: [
@@ -101,8 +89,6 @@ export const Navbar: React.FC = () => {
         { label: "Factories & Warehouses", path: "/industries/factory" }
       ]
     },
-    { label: "Gallery", path: "/gallery" },
-    { label: "Blog", path: "/blog" },
     { label: "About", path: "/about" },
     { label: "Contact", path: "/contact" }
   ];
@@ -112,13 +98,13 @@ export const Navbar: React.FC = () => {
       <div className="wrap h-full flex items-center justify-between">
         
         {/* LOGO */}
-        <Link to="/" className="flex items-center gap-2.5 font-bold text-navy text-xl tracking-tight">
+        <Link to="/" className="flex items-center gap-2.5 font-heading font-extrabold text-navy text-xl tracking-tight">
           <span className="logo-mark" aria-hidden="true" />
           Aquapure
         </Link>
 
         {/* DESKTOP NAVIGATION LINKS */}
-        <nav className="hidden lg:flex items-center gap-8" aria-label="Primary Navigation">
+        <nav className="hidden lg:flex items-center gap-9" aria-label="Primary Navigation">
           {navItems.map((item) => (
             <div
               key={item.label}
@@ -130,8 +116,8 @@ export const Navbar: React.FC = () => {
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `text-[14.5px] font-semibold text-ink-soft hover:text-navy transition-colors ${
-                      isActive ? "text-navy font-bold border-b-2 border-teal pb-1" : ""
+                    `text-[14px] font-medium text-ink-soft hover:text-navy transition-colors duration-150 ${
+                      isActive ? "text-navy font-semibold border-b-2 border-primary pb-1" : ""
                     }`
                   }
                 >
@@ -139,13 +125,13 @@ export const Navbar: React.FC = () => {
                 </NavLink>
               ) : (
                 <button
-                  className={`text-[14.5px] font-semibold text-ink-soft hover:text-navy flex items-center gap-1 transition-colors ${
+                  className={`text-[14px] font-medium text-ink-soft hover:text-navy flex items-center gap-1 transition-colors duration-150 ${
                     activeDropdown === item.label ? "text-navy" : ""
                   }`}
                   aria-expanded={activeDropdown === item.label}
                 >
                   {item.label}
-                  <ChevronDown className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180" />
+                  <ChevronDown className="w-3 h-3 transition-transform duration-300 group-hover:rotate-180" />
                 </button>
               )}
 
@@ -178,7 +164,7 @@ export const Navbar: React.FC = () => {
         </nav>
 
         {/* CTA ACTIONS */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-3">
           <Link to="/book-water-test" className="hidden sm:inline-flex btn-primary btn-compact">
             Free Water Test
           </Link>

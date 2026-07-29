@@ -94,15 +94,14 @@ export const Products: React.FC = () => {
                 </div>
               )}
               
-              {/* Product Vector Image */}
-              <div className="h-48 bg-mist-deep/30 flex items-center justify-center p-6 border-b border-line/10">
-                <svg viewBox="0 0 200 200" fill="none" className="h-full">
-                  <rect x="65" y="45" width="70" height="110" rx="8" fill="var(--mist-deep)" stroke="var(--teal)" strokeWidth="2" />
-                  <rect x="75" y="60" width="50" height="35" rx="4" fill="var(--paper)" />
-                  <circle cx="100" cy="77" r="10" fill="var(--teal)" opacity="0.3" />
-                  <circle cx="100" cy="77" r="5" fill="var(--teal)" />
-                  <path d="M100 120 C100 130 115 130 115 140" stroke="var(--gold)" strokeWidth="2.5" strokeLinecap="round" />
-                </svg>
+              {/* Product Image */}
+              <div className="h-48 bg-mist-deep/30 flex items-center justify-center border-b border-line/10 overflow-hidden">
+                <img 
+                  src={p.image} 
+                  alt={p.name}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                />
               </div>
 
               <div className="p-6 flex flex-col flex-grow">
