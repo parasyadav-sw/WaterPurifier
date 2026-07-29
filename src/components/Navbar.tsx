@@ -200,7 +200,7 @@ export const Navbar: React.FC = () => {
                     <Link
                       to={item.path}
                       onClick={() => setIsOpen(false)}
-                      className="text-xl font-bold text-navy"
+                      className="text-xl font-bold text-navy py-2 block"
                     >
                       {item.label}
                     </Link>
@@ -208,7 +208,7 @@ export const Navbar: React.FC = () => {
                     <div>
                       <button
                         onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                        className="text-xl font-bold text-navy flex items-center justify-between w-full"
+                        className="text-xl font-bold text-navy flex items-center justify-between w-full py-2"
                       >
                         {item.label}
                         <ChevronDown
@@ -226,7 +226,7 @@ export const Navbar: React.FC = () => {
                               key={subItem.label}
                               to={subItem.path}
                               onClick={() => setIsOpen(false)}
-                              className="text-[15px] font-semibold text-ink-soft hover:text-navy"
+                              className="text-[15px] font-semibold text-ink-soft hover:text-navy py-2.5 block"
                             >
                               {subItem.label}
                             </Link>

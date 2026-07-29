@@ -8,7 +8,7 @@ export const Warranty: React.FC = () => {
       animate={{ opacity: 1 }}
       className="wrap py-16 max-w-3xl"
     >
-      <h1 className="text-3xl md:text-4xl font-extrabold text-navy mb-6 tracking-tight">Warranty Policy</h1>
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mb-6 tracking-tight">Warranty Policy</h1>
       <div className="prose text-ink-soft leading-relaxed flex flex-col gap-6 text-[15px]">
         <p>Aquapure guarantees all newly purchased water purifier units against defects in materials and workmanship for a period of **One (1) Year** from the date of installation.</p>
         

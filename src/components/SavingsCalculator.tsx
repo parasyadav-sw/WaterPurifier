@@ -85,8 +85,8 @@ export const SavingsCalculator: React.FC = () => {
       <div className="calculator-results flex flex-col gap-4">
         
         {/* Money saved */}
-        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-5 flex items-start gap-4 shadow-sm">
-          <div className="result-icon-box w-11 h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-teal flex-shrink-0">
+        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-4 md:p-5 flex items-start gap-3 md:gap-4 shadow-sm">
+          <div className="result-icon-box w-9 h-9 md:w-11 md:h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-teal flex-shrink-0">
             <DollarSign className="w-5 h-5" />
           </div>
           <div className="result-data flex flex-col">
@@ -97,8 +97,8 @@ export const SavingsCalculator: React.FC = () => {
         </div>
 
         {/* Cartridge Lifespan */}
-        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-5 flex items-start gap-4 shadow-sm">
-          <div className="result-icon-box w-11 h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-gold flex-shrink-0">
+        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-4 md:p-5 flex items-start gap-3 md:gap-4 shadow-sm">
+          <div className="result-icon-box w-9 h-9 md:w-11 md:h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-gold flex-shrink-0">
             <ShieldCheck className="w-5 h-5" />
           </div>
           <div className="result-data flex flex-col">
@@ -109,8 +109,8 @@ export const SavingsCalculator: React.FC = () => {
         </div>
 
         {/* Bottles Saved */}
-        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-5 flex items-start gap-4 shadow-sm">
-          <div className="result-icon-box w-11 h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-success flex-shrink-0">
+        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-4 md:p-5 flex items-start gap-3 md:gap-4 shadow-sm">
+          <div className="result-icon-box w-9 h-9 md:w-11 md:h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-success flex-shrink-0">
             <Leaf className="w-5 h-5" />
           </div>
           <div className="result-data flex flex-col">

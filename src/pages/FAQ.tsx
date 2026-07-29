@@ -19,7 +19,7 @@ export const FAQ: React.FC = () => {
     >
       <div className="text-center mb-12">
         <span className="eyebrow">FAQ Help Center</span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 tracking-tight">Frequently Asked Questions</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mt-3 tracking-tight">Frequently Asked Questions</h1>
       </div>
 
       <div className="flex flex-col gap-4">

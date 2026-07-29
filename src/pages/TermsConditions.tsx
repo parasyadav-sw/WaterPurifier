@@ -8,7 +8,7 @@ export const TermsConditions: React.FC = () => {
       animate={{ opacity: 1 }}
       className="wrap py-16 max-w-3xl"
     >
-      <h1 className="text-3xl md:text-4xl font-extrabold text-navy mb-6 tracking-tight">Terms & Conditions</h1>
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mb-6 tracking-tight">Terms & Conditions</h1>
       <div className="prose text-ink-soft leading-relaxed flex flex-col gap-6 text-[15px]">
         <p>Last updated: July 28, 2026</p>
         <p>Please read these Terms and Conditions carefully before using our water purification booking services. By accessing our forms, booking tests, or ordering cartridges, you agree to be bound by these Terms.</p>

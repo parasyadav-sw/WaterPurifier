@@ -79,7 +79,7 @@ export const WaterProblems: React.FC = () => {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <span className="eyebrow">Water Quality Guide</span>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
+        <h1 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
           Common tap water problems and their solutions
         </h1>
         <p className="text-ink-soft leading-relaxed">

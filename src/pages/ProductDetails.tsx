@@ -91,7 +91,7 @@ export const ProductDetails: React.FC = () => {
             </div>
 
             {/* Gallery thumbnails */}
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
               {product.gallery.map((img, idx) => (
                 <div key={idx} className="bg-mist/20 border border-line/5 rounded-radius-sm h-24 overflow-hidden cursor-pointer hover:border-teal transition-all">
                   <img 
@@ -130,7 +130,7 @@ export const ProductDetails: React.FC = () => {
               <span className="card-tag text-xs font-bold text-teal-deep uppercase tracking-wider">
                 {product.category}
               </span>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-navy mt-2 mb-3 tracking-tight">
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mt-2 mb-3 tracking-tight">
                 {product.name}
               </h1>
               <p className="text-[14.5px] font-semibold text-teal-deep italic mb-4">
@@ -142,7 +142,7 @@ export const ProductDetails: React.FC = () => {
             </div>
 
             {/* Price Card */}
-            <div className="bg-mist/30 border border-line/10 rounded-radius p-6 flex items-center justify-between shadow-sm">
+            <div className="bg-mist/30 border border-line/10 rounded-radius p-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 shadow-sm">
               <div className="flex flex-col">
                 <span className="text-xs font-bold text-ink-soft uppercase tracking-wider">MRP (Inclusive of all taxes)</span>
                 <span className="text-3xl font-extrabold text-navy mt-1">{product.price}</span>
@@ -201,7 +201,7 @@ export const ProductDetails: React.FC = () => {
             <h3 className="text-xl font-bold text-navy mb-2">Technical Specifications</h3>
             <div className="border border-line/10 rounded-radius-sm overflow-hidden bg-paper">
               {Object.entries(product.specifications).map(([key, val], idx) => (
-                <div key={idx} className="grid grid-cols-2 p-4 text-[14px] border-b border-line/5 last:border-b-0 hover:bg-mist/10 transition-colors">
+                <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 p-4 text-[14px] border-b border-line/5 last:border-b-0 hover:bg-mist/10 transition-colors gap-1 sm:gap-0">
                   <span className="text-ink-soft font-medium">{key}</span>
                   <span className="text-navy font-bold">{val}</span>
                 </div>

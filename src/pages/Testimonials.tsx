@@ -18,12 +18,12 @@ export const Testimonials: React.FC = () => {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <span className="eyebrow">Customer Love</span>
-        <h1 className="text-3xl md:text-4xl font-extrabold text-navy mt-3 tracking-tight">What our users say</h1>
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mt-3 tracking-tight">What our users say</h1>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         {reviews.map((test, idx) => (
-          <div key={idx} className="p-8 bg-paper border border-line/10 rounded-radius shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300">
+          <div key={idx} className="p-5 md:p-8 bg-paper border border-line/10 rounded-radius shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300">
             <p className="text-[15px] text-ink-soft italic leading-relaxed mb-6">"{test.text}"</p>
             <div className="flex items-center justify-between border-t border-line/5 pt-4 mt-auto">
               <div className="flex items-center">

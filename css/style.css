@@ -2,38 +2,39 @@
 
 /* --- DESIGN SYSTEM & CSS VARIABLES --- */
 :root {
-  /* HSL Tailored Color Palette */
-  --mist: #E4EEF2;
-  --mist-deep: #D3E3E9;
-  --navy: #0F2A3A;
-  --navy-deep: #0A1E2B;
-  --teal: #2F8F9D;
-  --teal-deep: #1D5F6B;
-  --gold: #C9A66B;
-  --gold-deep: #B38E54;
-  --ink: #12263A;
-  --ink-soft: #4A6070;
-  --paper: #FBFCFC;
-  --line: rgba(15, 42, 58, 0.12);
+  /* Premium Water-Inspired Color Palette */
+  --mist: #F0F9FF;
+  --mist-deep: #E2E8F0;
+  --navy: #03045E;
+  --navy-deep: #020345;
+  --teal: #0077B6;
+  --teal-deep: #005F8A;
+  --gold: #00B4D8;
+  --gold-deep: #009AB5;
+  --accent: #90E0EF;
+  --ink: #1E293B;
+  --ink-soft: #64748B;
+  --paper: #FFFFFF;
+  --line: rgba(3, 4, 94, 0.12);
   --radius: 22px;
   --radius-sm: 12px;
   --radius-lg: 28px;
   
   /* Additional UI Colors */
-  --success: #2A8C4A;
-  --success-bg: rgba(42, 140, 74, 0.1);
-  --warning: #D97706;
-  --warning-bg: rgba(217, 119, 6, 0.1);
-  --danger: #DC2626;
-  --danger-bg: rgba(220, 38, 38, 0.1);
+  --success: #2DD4BF;
+  --success-bg: rgba(45, 212, 191, 0.1);
+  --warning: #F59E0B;
+  --warning-bg: rgba(245, 158, 11, 0.1);
+  --danger: #EF4444;
+  --danger-bg: rgba(239, 68, 68, 0.1);
   
   /* Transitions & Shadows */
   --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-sm: 0 4px 12px rgba(15, 42, 58, 0.04);
-  --shadow-md: 0 16px 32px rgba(15, 42, 58, 0.06), 0 4px 8px rgba(15, 42, 58, 0.02);
-  --shadow-lg: 0 32px 64px rgba(15, 42, 58, 0.1);
-  --glass-bg: rgba(251, 252, 252, 0.75);
-  --glass-border: rgba(15, 42, 58, 0.08);
+  --shadow-sm: 0 4px 12px rgba(3, 4, 94, 0.04);
+  --shadow-md: 0 16px 32px rgba(3, 4, 94, 0.06), 0 4px 8px rgba(3, 4, 94, 0.02);
+  --shadow-lg: 0 32px 64px rgba(3, 4, 94, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-border: rgba(3, 4, 94, 0.08);
   --backdrop: blur(20px);
 }
 
@@ -1089,7 +1090,7 @@ header {
 }
 
 .stage-btn:hover {
-  background-color: rgba(15, 42, 58, 0.04);
+  background-color: rgba(3, 4, 94, 0.04);
 }
 
 

@@ -76,9 +76,9 @@ export const FiltrationExplorer: React.FC = () => {
           <line x1="45" y1="15" x2="45" y2="85" stroke="var(--teal)" strokeWidth="6" />
           <line x1="52" y1="15" x2="52" y2="85" stroke="var(--teal)" strokeWidth="4" opacity="0.7" />
           {/* Tiny trapped carbon particles */}
-          <circle cx="40" cy="30" r="1.5" fill="#0F172A" />
-          <circle cx="41" cy="55" r="1.2" fill="#0F172A" />
-          <circle cx="38" cy="70" r="1" fill="#0F172A" />
+          <circle cx="40" cy="30" r="1.5" fill="#03045E" />
+          <circle cx="41" cy="55" r="1.2" fill="#03045E" />
+          <circle cx="38" cy="70" r="1" fill="#03045E" />
           {/* Crystal clear output */}
           <circle cx="68" cy="35" r="2.5" fill="var(--teal)" opacity="0.7" />
           <circle cx="72" cy="60" r="2" fill="var(--teal)" opacity="0.7" />
@@ -139,9 +139,9 @@ export const FiltrationExplorer: React.FC = () => {
           {/* UV Tube */}
           <rect x="45" y="15" width="10" height="70" fill="#C084FC" rx="3" />
           {/* Damaged Pathogens */}
-          <path d="M 25 45 C 20 40 22 30 28 35 C 34 40 30 50 25 45" fill="#10B981" opacity="0.4" />
+          <path d="M 25 45 C 20 40 22 30 28 35 C 34 40 30 50 25 45" fill="#2DD4BF" opacity="0.4" />
           <line x1="22" y1="35" x2="28" y2="45" stroke="var(--danger)" strokeWidth="1.5" />
-          <path d="M 72 55 C 68 50 70 42 76 46 C 82 50 78 60 72 55" fill="#10B981" opacity="0.3" />
+          <path d="M 72 55 C 68 50 70 42 76 46 C 82 50 78 60 72 55" fill="#2DD4BF" opacity="0.3" />
           <line x1="70" y1="46" x2="76" y2="54" stroke="var(--danger)" strokeWidth="1.5" />
         </>
       )
@@ -226,7 +226,7 @@ export const FiltrationExplorer: React.FC = () => {
 
           {/* Microscope illustration */}
           <div className="explorer-illustration bg-paper border border-line/10 rounded-radius-sm p-6 flex flex-col items-center justify-center gap-3">
-            <div className="microscope-ring w-[130px] h-[130px] rounded-full border-3 border-teal relative bg-mist flex items-center justify-center overflow-hidden shadow-inner">
+            <div className="microscope-ring rounded-full border-3 border-teal relative bg-mist flex items-center justify-center overflow-hidden shadow-inner">
               <svg viewBox="0 0 100 100" className="w-full h-full">
                 <circle cx="50" cy="50" r="45" fill="none" stroke="var(--line)" strokeWidth="1" />
                 <g id="microscope-elements">

@@ -37,7 +37,7 @@ export const Products: React.FC = () => {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <span className="eyebrow">Product Catalog</span>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
           Purification systems for every household and industry
         </h1>
         <p className="text-ink-soft leading-relaxed">
@@ -60,7 +60,7 @@ export const Products: React.FC = () => {
           <button
             key={tab.id}
             onClick={() => setFilterTab(tab.id)}
-            className={`px-5 py-2.5 rounded-full text-[13.5px] font-semibold border transition-all duration-300 ${
+            className={`px-5 py-3 min-h-[44px] rounded-full text-[13.5px] font-semibold border transition-all duration-300 ${
               filterTab === tab.id
                 ? "bg-navy text-white border-navy shadow-sm"
                 : "bg-paper text-ink-soft border-line/15 hover:bg-mist/35 hover:text-navy"
@@ -115,7 +115,7 @@ export const Products: React.FC = () => {
                 <p className="text-[14px] text-ink-soft leading-relaxed mb-6 flex-grow">
                   {p.tagline}
                 </p>
-                <div className="flex justify-between items-center border-t border-line/10 pt-4 mt-auto">
+                <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 border-t border-line/10 pt-4 mt-auto">
                   <span className="text-lg font-extrabold text-navy">{p.price}</span>
                   <div className="flex items-center gap-2">
                     <Link to={`/products/${p.slug}`} className="btn-ghost">

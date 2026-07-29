@@ -84,13 +84,13 @@ export const TdsSimulator: React.FC = () => {
     let cleanLineHeight = '';
     
     if (tds < 200) {
-      background = 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(47,143,157,0.1) 100%)';
+      background = 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(0,119,182,0.1) 100%)';
       cleanLineHeight = '85%';
     } else if (tds >= 200 && tds < 600) {
-      background = 'linear-gradient(180deg, rgba(201,166,107,0.08) 0%, rgba(47,143,157,0.12) 100%)';
+      background = 'linear-gradient(180deg, rgba(0,180,216,0.08) 0%, rgba(0,119,182,0.12) 100%)';
       cleanLineHeight = '65%';
     } else {
-      background = 'linear-gradient(180deg, rgba(201,166,107,0.18) 0%, rgba(74,96,112,0.15) 100%)';
+      background = 'linear-gradient(180deg, rgba(0,180,216,0.18) 0%, rgba(74,96,112,0.15) 100%)';
       cleanLineHeight = '40%';
     }
 

@@ -16,7 +16,7 @@ export const Accessories: React.FC = () => {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <span className="eyebrow">Replacement Parts</span>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
           Genuine cartridges and components
         </h1>
         <p className="text-ink-soft leading-relaxed">
@@ -126,7 +126,7 @@ export const Accessories: React.FC = () => {
               {/* Specs Details */}
               <div className="border border-line/10 rounded-radius-sm overflow-hidden bg-paper mb-6">
                 {Object.entries(selectedAcc.specifications).map(([k, v], idx) => (
-                  <div key={idx} className="grid grid-cols-2 p-3 text-[13px] border-b border-line/5 last:border-b-0">
+                  <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 p-3 text-[13px] border-b border-line/5 last:border-b-0 gap-1 sm:gap-0">
                     <span className="text-ink-soft font-medium">{k}</span>
                     <span className="text-navy font-bold text-right">{v}</span>
                   </div>

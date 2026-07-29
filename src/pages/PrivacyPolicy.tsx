@@ -8,7 +8,7 @@ export const PrivacyPolicy: React.FC = () => {
       animate={{ opacity: 1 }}
       className="wrap py-16 max-w-3xl"
     >
-      <h1 className="text-3xl md:text-4xl font-extrabold text-navy mb-6 tracking-tight">Privacy Policy</h1>
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mb-6 tracking-tight">Privacy Policy</h1>
       <div className="prose text-ink-soft leading-relaxed flex flex-col gap-6 text-[15px]">
         <p>Last updated: July 28, 2026</p>
         <p>Aquapure Water Systems Private Limited (\"we\", \"our\", or \"us\") operates the Aquapure website. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>

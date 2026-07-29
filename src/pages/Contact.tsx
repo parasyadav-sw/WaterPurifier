@@ -50,7 +50,7 @@ export const Contact: React.FC = () => {
     >
       <div className="text-center max-w-2xl mx-auto mb-12">
         <span className="eyebrow">Help Center</span>
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
+        <h1 className="text-2xl md:text-3xl lg:text-5xl font-extrabold text-navy mt-3 mb-4 tracking-tight">
           We are here to assist you
         </h1>
         <p className="text-ink-soft leading-relaxed">

@@ -44,65 +44,54 @@ export const Home: React.FC = () => {
       variants={containerVariants}
       className="pb-10 bg-mist min-h-screen text-ink font-sans"
     >
-      {/* 1. HERO BANNER */}
-      <section className="wrap pt-28 pb-16 relative overflow-hidden">
-        {/* Subtle Water-drop/ripple motif background */}
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
-          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(14, 165, 233, 0.15)" strokeWidth="1" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-            <circle cx="50%" cy="50%" r="200" fill="none" stroke="rgba(6, 182, 212, 0.15)" strokeWidth="2" strokeDasharray="8 8" />
-            <circle cx="50%" cy="50%" r="350" fill="none" stroke="rgba(14, 165, 233, 0.1)" strokeWidth="1" />
-          </svg>
-        </div>
+      {/* 1. FULL-WIDTH HERO VIDEO SECTION */}
+      <section className="relative w-full h-[90vh] md:h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        {/* Autoplay Background Video */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          <source src="/herobanner/watermark-removed-Create_an_ultra_realistic_D_c.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        {/* Subtle dark overlay for text readability (45% opacity) */}
+        <div className="absolute inset-0 bg-slate-950/45 z-10 pointer-events-none" />
 
-        <div className="hero-frame relative z-10 max-w-4xl mx-auto text-center flex flex-col items-center overflow-hidden border border-line rounded-radius-lg p-10 md:p-16 lg:p-20 shadow-md">
-          {/* Autoplay Background Video */}
-          <video
-            className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source src="videos/hero background.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          {/* Overlay to keep text legible on dark video */}
-          <div className="absolute inset-0 bg-navy-deep/60 z-10 pointer-events-none" />
-
-          {/* Text content placed in z-20 to display on top */}
-          <div className="relative z-20 flex flex-col items-center">
-            <span className="hero-badge inline-flex items-center gap-2 bg-success/15 border border-success/30 text-success text-[12px] font-bold py-1.5 px-4 rounded-full mb-6 backdrop-blur-sm">
-              <span className="w-2 h-2 rounded-full bg-success animate-ping" />
-              Lab-Verified, 99.9% Contaminant Removal
+        {/* Content Container with smooth fade-in animations */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="relative z-20 w-full max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center justify-center text-white"
+        >
+          <span className="hero-badge inline-flex items-center gap-2 bg-success/15 border border-success/30 text-success text-[12.5px] font-bold py-2 px-5 rounded-full mb-6 backdrop-blur-sm animate-fade-in">
+            <span className="w-2.5 h-2.5 rounded-full bg-success animate-ping" />
+            Lab-Verified, 99.9% Contaminant Removal
+          </span>
+          
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-heading font-extrabold text-white leading-tight tracking-tight mb-6 drop-shadow-sm">
+            Pure water, <br />
+            <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              engineered for life
             </span>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-white leading-tight tracking-tight mb-5">
-              Pure water, <br />
-              <span className="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent" style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-                engineered for life
-              </span>
-            </h1>
-            
-            <p className="text-base md:text-lg text-slate-200 leading-relaxed mb-8 max-w-2xl font-medium font-accent">
-              Aquapure's intelligent seven-stage RO and UV system strips out lead, microplastics, and arsenic — while restoring the vital alkaline minerals your body needs to thrive.
-            </p>
-            
-            <div className="flex flex-wrap items-center justify-center gap-4">
-              <Link to="/products" className="btn-primary flex items-center gap-2">
-                Shop Systems <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a href="#tds-section" className="btn-outline-white">
-                Analyze Water Quality
-              </a>
-            </div>
+          </h1>
+          
+          <p className="text-base sm:text-lg md:text-xl text-slate-200/95 leading-relaxed mb-10 max-w-3xl font-medium font-accent drop-shadow-sm">
+            Aquapure's intelligent seven-stage RO and UV system strips out lead, microplastics, and arsenic — while restoring the vital alkaline minerals your body needs to thrive.
+          </p>
+          
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <Link to="/products" className="btn-primary flex items-center gap-2 text-sm sm:text-base px-6 py-3">
+              Shop Systems <ArrowRight className="w-4 h-4" />
+            </Link>
+            <a href="#tds-section" className="btn-outline-white text-sm sm:text-base px-6 py-3">
+              Analyze Water Quality
+            </a>
           </div>
-        </div>
+        </motion.div>
       </section>
 
       {/* 2. TRUST BAR & STATS */}
@@ -127,7 +116,7 @@ export const Home: React.FC = () => {
           </div>
 
           {/* Core metrics */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-line">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-line">
             {[
               { value: "3.6M+", label: "Liters Purified Daily" },
               { value: "99.9%", label: "Contaminants Removed" },
@@ -149,7 +138,7 @@ export const Home: React.FC = () => {
           <div className="section-head mb-12">
             <div>
               <span className="eyebrow text-primary">Interactive Diagnostics</span>
-              <h2 className="text-3xl font-bold text-navy mt-2">See what's in your tap water</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mt-2">See what's in your tap water</h2>
             </div>
             <p className="text-ink-soft max-w-md">
               Select your water source and adjust the TDS (Total Dissolved Solids) level to visualize impurities and view the recommended filtration outcome.
@@ -165,7 +154,7 @@ export const Home: React.FC = () => {
           <div className="section-head mb-12">
             <div>
               <span className="eyebrow text-primary">Engineering Purity</span>
-              <h2 className="text-3xl font-bold text-navy mt-2">Architected for genuinely clean water</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mt-2">Architected for genuinely clean water</h2>
             </div>
             <p className="text-ink-soft max-w-md font-medium">
               Every unit is built around one core idea: strip out everything that harms you, restoring natural alkaline mineral hydration.
@@ -180,7 +169,7 @@ export const Home: React.FC = () => {
         <div className="wrap">
           <div className="text-center mb-12">
             <span className="eyebrow text-primary">Water Quality Standards</span>
-            <h2 className="text-3xl font-bold text-navy mt-2">How Aquapure Compares</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mt-2">How Aquapure Compares</h2>
             <p className="text-ink-soft max-w-md mx-auto mt-2 text-[15px]">
               A side-by-side technical breakdown of contaminants, mineral preservation, and smart diagnostic support.
             </p>
@@ -244,7 +233,7 @@ export const Home: React.FC = () => {
         <div className="wrap">
           <div className="text-center mb-12">
             <span className="eyebrow text-primary">Pricing Plans</span>
-            <h2 className="text-3xl font-bold text-navy mt-2">Transparent pricing for peace of mind</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mt-2">Transparent pricing for peace of mind</h2>
             <p className="text-ink-soft max-w-md mx-auto mt-2 text-[15px]">
               Select a system configuration or secure your home with our predictable annual care plan.
             </p>
@@ -318,7 +307,7 @@ export const Home: React.FC = () => {
           <div className="section-head mb-12">
             <div>
               <span className="eyebrow text-primary">Eco-Impact Calculator</span>
-              <h2 className="text-3xl font-bold text-navy mt-2">Good for your health, better for the earth</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mt-2">Good for your health, better for the earth</h2>
             </div>
             <p className="text-ink-soft max-w-md">
               Calculate how much you save on filter refills, single-use plastic bottles, and money by switching from canned water to Aquapure.
@@ -341,7 +330,7 @@ export const Home: React.FC = () => {
           </div>
           <div className="absolute top-0 right-0 w-80 h-80 bg-primary/10 rounded-full filter blur-3xl pointer-events-none z-10" />
           <span className="eyebrow !text-secondary font-bold relative z-20">Annual Care Subscription</span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mt-4 mb-4 max-w-xl relative z-20">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-bold text-white mt-4 mb-4 max-w-xl relative z-20">
             Never think about your water filter again.
           </h2>
           <p className="text-slate-400 max-w-lg mb-8 text-[15px] leading-relaxed relative z-20">
@@ -364,7 +353,7 @@ export const Home: React.FC = () => {
           <div className="section-head mb-12">
             <div>
               <span className="eyebrow text-primary">User Reviews</span>
-              <h2 className="text-3xl font-bold text-navy mt-2">What our customers say</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mt-2">What our customers say</h2>
             </div>
             <Link to="/testimonials" className="link-arrow text-primary">
               View all reviews
@@ -401,7 +390,7 @@ export const Home: React.FC = () => {
         <div className="wrap max-w-4xl">
           <div className="text-center mb-12">
             <span className="eyebrow text-primary">Common Queries</span>
-            <h2 className="text-3xl font-bold text-navy mt-2">Frequently Asked Questions</h2>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mt-2">Frequently Asked Questions</h2>
           </div>
 
           <div className="flex flex-col gap-4">
