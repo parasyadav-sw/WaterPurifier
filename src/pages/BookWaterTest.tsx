@@ -68,7 +68,7 @@ export const BookWaterTest: React.FC = () => {
         </p>
       </div>
 
-      <div className="bg-paper border border-line/10 rounded-radius p-6 md:p-10 shadow-sm max-w-2xl mx-auto">
+      <div className="bg-paper border border-line/10 rounded-radius p-5 sm:p-6 md:p-10 shadow-sm max-w-2xl mx-auto">
         {submitted ? (
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}

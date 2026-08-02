@@ -20,7 +20,7 @@ export const AboutUs: React.FC = () => {
       </div>
 
       {/* Grid of Values */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto mb-16">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 max-w-5xl mx-auto mb-12 sm:mb-16">
         <div className="p-6 bg-mist/20 border border-line/10 rounded-radius flex flex-col gap-3 shadow-sm text-center items-center">
           <img src="/images/about/manufacturing.jpg" alt="Our Mission" className="w-full h-32 object-cover rounded-radius-sm" />
           <h3 className="text-base font-bold text-navy">Our Mission</h3>

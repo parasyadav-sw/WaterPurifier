@@ -30,7 +30,7 @@ export const SavingsCalculator: React.FC = () => {
   }, [familySize, usage]);
 
   return (
-    <div className="calculator-box glass max-w-5xl mx-auto rounded-radius p-6 md:p-10 border border-line/10 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div className="calculator-box glass max-w-5xl mx-auto rounded-radius p-5 sm:p-6 md:p-10 border border-line/10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 items-center">
       
       {/* Inputs Column */}
       <div className="flex flex-col gap-6">
@@ -82,10 +82,10 @@ export const SavingsCalculator: React.FC = () => {
       </div>
 
       {/* Results Column */}
-      <div className="calculator-results flex flex-col gap-4">
+      <div className="calculator-results flex flex-col gap-3 sm:gap-4">
         
         {/* Money saved */}
-        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-4 md:p-5 flex items-start gap-3 md:gap-4 shadow-sm">
+        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-3.5 sm:p-4 md:p-5 flex items-start gap-3 sm:gap-3.5 md:gap-4 shadow-sm">
           <div className="result-icon-box w-9 h-9 md:w-11 md:h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-teal flex-shrink-0">
             <DollarSign className="w-5 h-5" />
           </div>
@@ -97,7 +97,7 @@ export const SavingsCalculator: React.FC = () => {
         </div>
 
         {/* Cartridge Lifespan */}
-        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-4 md:p-5 flex items-start gap-3 md:gap-4 shadow-sm">
+        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-3.5 sm:p-4 md:p-5 flex items-start gap-3 sm:gap-3.5 md:gap-4 shadow-sm">
           <div className="result-icon-box w-9 h-9 md:w-11 md:h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-gold flex-shrink-0">
             <ShieldCheck className="w-5 h-5" />
           </div>
@@ -109,7 +109,7 @@ export const SavingsCalculator: React.FC = () => {
         </div>
 
         {/* Bottles Saved */}
-        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-4 md:p-5 flex items-start gap-3 md:gap-4 shadow-sm">
+        <div className="result-tile bg-mist/30 border border-line/10 rounded-radius-sm p-3.5 sm:p-4 md:p-5 flex items-start gap-3 sm:gap-3.5 md:gap-4 shadow-sm">
           <div className="result-icon-box w-9 h-9 md:w-11 md:h-11 rounded-full bg-paper border border-line/5 shadow-sm flex items-center justify-center text-success flex-shrink-0">
             <Leaf className="w-5 h-5" />
           </div>

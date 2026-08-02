@@ -21,9 +21,9 @@ export const Testimonials: React.FC = () => {
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mt-3 tracking-tight">What our users say</h1>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto">
         {reviews.map((test, idx) => (
-          <div key={idx} className="p-5 md:p-8 bg-paper border border-line/10 rounded-radius shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300">
+          <div key={idx} className="p-5 sm:p-6 md:p-8 bg-paper border border-line/10 rounded-radius shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300">
             <p className="text-[15px] text-ink-soft italic leading-relaxed mb-6">"{test.text}"</p>
             <div className="flex items-center justify-between border-t border-line/5 pt-4 mt-auto">
               <div className="flex items-center">

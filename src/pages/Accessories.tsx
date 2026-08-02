@@ -25,12 +25,12 @@ export const Accessories: React.FC = () => {
       </div>
 
       {/* Grid of Accessories */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 sm:gap-6">
         {accessories.map((acc) => (
           <article
             key={acc.slug}
             onClick={() => setSelectedAcc(acc)}
-            className="card bg-mist/35 border border-line/10 rounded-radius p-6 flex flex-col justify-between hover:shadow-md cursor-pointer hover:border-teal transition-all duration-300"
+            className="card bg-mist/35 border border-line/10 rounded-radius p-5 sm:p-6 flex flex-col justify-between hover:shadow-md cursor-pointer hover:border-teal transition-all duration-300"
           >
             <div>
               {acc.image && (
@@ -59,7 +59,7 @@ export const Accessories: React.FC = () => {
       {/* Detailed overlay modal for single accessory */}
       <AnimatePresence>
         {selectedAcc && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -72,7 +72,7 @@ export const Accessories: React.FC = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.95 }}
               transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-              className="relative z-10 w-full max-w-lg rounded-radius bg-paper p-6 md:p-8 shadow-lg border border-line/10 max-h-[90vh] overflow-y-auto"
+              className="relative z-10 w-full max-w-lg rounded-radius bg-paper p-5 sm:p-6 md:p-8 shadow-lg border border-line/10 max-h-[90vh] max-h-[90dvh] overflow-y-auto overscroll-contain"
             >
               <button
                 onClick={() => setSelectedAcc(null)}

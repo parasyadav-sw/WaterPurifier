@@ -172,9 +172,9 @@ export const FiltrationExplorer: React.FC = () => {
   const active = stages[activeStage];
 
   return (
-    <div className="feature-grid grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch max-w-6xl mx-auto">
+    <div className="feature-grid grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 items-stretch max-w-6xl mx-auto">
       {/* Left Column Stage selector */}
-      <div className="card stage-card bg-mist border border-line/10 rounded-radius p-6 md:p-8 flex flex-col justify-between">
+      <div className="card stage-card bg-mist border border-line/10 rounded-radius p-5 sm:p-6 md:p-8 flex flex-col justify-between">
         <div>
           <span className="card-tag text-xs font-bold text-teal-deep uppercase tracking-wider">
             Interactive Filtration Stages
@@ -214,8 +214,8 @@ export const FiltrationExplorer: React.FC = () => {
       </div>
 
       {/* Right Column Dynamic Detail View */}
-      <div className="card-pair flex flex-col gap-6">
-        <div className="card explorer-visual-card bg-mist border border-line/10 rounded-radius p-7 md:p-8 flex flex-col justify-between gap-5 min-h-[420px] shadow-sm">
+      <div className="card-pair flex flex-col gap-5 sm:gap-6">
+        <div className="card explorer-visual-card bg-mist border border-line/10 rounded-radius p-6 sm:p-7 md:p-8 flex flex-col justify-between gap-4 sm:gap-5 min-h-[380px] sm:min-h-[420px] shadow-sm">
           <div>
             <span className="card-tag text-xs font-bold text-teal-deep uppercase tracking-wider">
               {active.tag}
@@ -251,13 +251,13 @@ export const FiltrationExplorer: React.FC = () => {
         </div>
 
         {/* Small Verification Previews */}
-        <div className="mini-cards grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div className="card bg-mist border border-line/10 rounded-radius p-6">
+        <div className="mini-cards grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+          <div className="card bg-mist border border-line/10 rounded-radius p-5 sm:p-6">
             <span className="card-tag text-xs font-bold text-teal-deep uppercase tracking-wide">Verification</span>
             <h3 className="text-base font-bold text-navy mt-1 mb-2">NSF & WQA Certified</h3>
             <p className="text-[13.5px] text-ink-soft leading-relaxed">Independently validated against standard 53 and 58 protocols.</p>
           </div>
-          <div className="card bg-mist border border-line/10 rounded-radius p-6">
+          <div className="card bg-mist border border-line/10 rounded-radius p-5 sm:p-6">
             <span className="card-tag text-xs font-bold text-teal-deep uppercase tracking-wide">Proactive Care</span>
             <h3 className="text-base font-bold text-navy mt-1 mb-2">Auto Refills</h3>
             <p className="text-[13.5px] text-ink-soft leading-relaxed">Replacement cartridges arrive at your doorstep before your old filters expire.</p>

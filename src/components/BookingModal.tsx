@@ -133,7 +133,7 @@ export const BookingModal: React.FC = () => {
   }[visitTime as 'morning' | 'afternoon' | 'evening'] || visitTime;
 
   return (
-    <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[110] flex items-center justify-center p-3 sm:p-4">
       {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -149,7 +149,7 @@ export const BookingModal: React.FC = () => {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.95 }}
         transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-        className="relative z-10 w-full max-w-[500px] rounded-radius bg-paper/90 border border-line/10 p-6 md:p-10 shadow-lg backdrop-blur-lg max-h-[90vh] overflow-y-auto"
+        className="relative z-10 w-full max-w-[500px] rounded-radius bg-paper/90 border border-line/10 p-5 sm:p-6 md:p-10 shadow-lg backdrop-blur-lg max-h-[90vh] max-h-[90dvh] overflow-y-auto overscroll-contain"
       >
         <button
           onClick={handleModalClose}

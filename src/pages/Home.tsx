@@ -45,7 +45,7 @@ export const Home: React.FC = () => {
       className="pb-10 bg-mist min-h-screen text-ink font-sans"
     >
       {/* 1. FULL-WIDTH HERO VIDEO SECTION */}
-      <section className="relative w-full h-[90vh] md:h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative w-full h-[85vh] sm:h-[90vh] md:h-screen min-h-[500px] sm:min-h-[600px] flex items-center justify-center overflow-hidden">
         {/* Autoplay Background Video */}
         <video
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
@@ -63,13 +63,13 @@ export const Home: React.FC = () => {
         {/* Content Container (containing only the buttons positioned in the lower-middle area) */}
         <motion.div
           variants={cardVariants}
-          className="relative z-20 w-full max-w-5xl mx-auto px-6 md:px-12 text-center flex flex-col items-center justify-end pb-16 md:pb-24 lg:pb-28 text-white h-full"
+          className="relative z-20 w-full max-w-5xl mx-auto px-4 sm:px-6 md:px-12 text-center flex flex-col items-center justify-end pb-12 sm:pb-16 md:pb-24 lg:pb-28 text-white h-full"
         >
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link to="/products" className="btn-primary flex items-center gap-2 text-sm sm:text-base px-6 py-3">
-              Shop Systems <ArrowRight className="w-4 h-4" />
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+            <Link to="/products" className="btn-primary flex items-center justify-center gap-2 text-sm sm:text-base px-6 py-3 w-full sm:w-auto min-h-[48px]">
+              Shop Systems <ArrowRight className="w-4 h-4 flex-shrink-0" />
             </Link>
-            <a href="#tds-section" className="btn-outline-white text-sm sm:text-base px-6 py-3">
+            <a href="#tds-section" className="btn-outline-white text-sm sm:text-base px-6 py-3 w-full sm:w-auto min-h-[48px] flex items-center justify-center">
               Analyze Water Quality
             </a>
           </div>
@@ -77,37 +77,39 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 2. TRUST BAR & STATS */}
-      <section className="wrap pb-14 pt-4">
-        <div className="bg-paper border border-line rounded-radius p-6 md:p-10 shadow-sm">
+      <section className="wrap pb-10 sm:pb-14 pt-4">
+        <div className="bg-paper border border-line rounded-radius p-4 sm:p-6 md:p-10 shadow-sm">
           {/* Accreditation Logos */}
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-14 border-b border-line pb-8 mb-8 opacity-90">
-            <span className="text-[12px] font-bold text-ink-soft uppercase tracking-wider">Certified by standards:</span>
+          <div className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 md:gap-14 border-b border-line pb-6 sm:pb-8 mb-6 sm:mb-8 opacity-90">
+            <span className="text-[11px] sm:text-[12px] font-bold text-ink-soft uppercase tracking-wider">Certified by standards:</span>
             
-            <div className="flex items-center gap-2 text-navy font-bold text-[14px]">
-              <Award className="w-5 h-5 text-success" />
-              <span>WQA Gold Seal</span>
-            </div>
-            <div className="flex items-center gap-2 text-navy font-bold text-[14px]">
-              <ShieldCheck className="w-5 h-5 text-success" />
-              <span>NSF/ANSI 58</span>
-            </div>
-            <div className="flex items-center gap-2 text-navy font-bold text-[14px]">
-              <CheckCircle2 className="w-5 h-5 text-success" />
-              <span>ISI Certified</span>
+            <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+              <div className="flex items-center gap-2 text-navy font-bold text-[13px] sm:text-[14px]">
+                <Award className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0" />
+                <span>WQA Gold Seal</span>
+              </div>
+              <div className="flex items-center gap-2 text-navy font-bold text-[13px] sm:text-[14px]">
+                <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0" />
+                <span>NSF/ANSI 58</span>
+              </div>
+              <div className="flex items-center gap-2 text-navy font-bold text-[13px] sm:text-[14px]">
+                <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0" />
+                <span>ISI Certified</span>
+              </div>
             </div>
           </div>
 
           {/* Core metrics */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 divide-y sm:divide-y-0 sm:divide-x divide-line">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 divide-x divide-line">
             {[
               { value: "3.6M+", label: "Liters Purified Daily" },
               { value: "99.9%", label: "Contaminants Removed" },
               { value: "50,000+", label: "Homes Protected" },
               { value: "5-Year", label: "Gold AMC Warranty" }
             ].map((stat, idx) => (
-              <div key={idx} className="stat-card p-4 md:p-6 flex flex-col gap-2 border-l border-line first:border-l-0 text-center">
-                <span className="text-3xl md:text-4xl font-heading font-extrabold text-navy tracking-tight">{stat.value}</span>
-                <span className="text-[11.5px] font-bold text-ink-soft uppercase tracking-wider">{stat.label}</span>
+              <div key={idx} className={`stat-card p-3 sm:p-4 md:p-6 flex flex-col gap-1.5 sm:gap-2 text-center ${idx === 0 ? 'border-l-0 pl-0' : ''}`}>
+                <span className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-navy tracking-tight">{stat.value}</span>
+                <span className="text-[10px] sm:text-[11.5px] font-bold text-ink-soft uppercase tracking-wider leading-tight">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -221,49 +223,49 @@ export const Home: React.FC = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 items-stretch">
             {/* Plan 1 */}
-            <div className="p-8 bg-paper border border-line rounded-radius flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200">
+            <div className="p-6 sm:p-8 bg-paper border border-line rounded-radius flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200">
               <div>
-                <span className="text-xs font-bold text-teal-deep uppercase tracking-wider font-heading">Countertop Model</span>
-                <h3 className="text-xl font-bold text-navy mt-2 mb-1">Countertop Pro</h3>
-                <p className="text-sm text-ink-soft mb-6 leading-relaxed">Perfect for rental apartments, couples, and small kitchens.</p>
-                <div className="text-3xl font-heading font-extrabold text-navy mb-6">₹6,999 <span className="text-xs font-normal text-ink-soft">one-time</span></div>
+                <span className="text-xs font-bold text-teal-deep uppercase tracking-wider font-heading">Popular UV+UF model</span>
+                <h3 className="text-xl font-bold text-navy mt-2 mb-1">Sure Delight 2X UV+UF</h3>
+                <p className="text-sm text-ink-soft mb-6 leading-relaxed">Eco-friendly steel tank system with 2-year filter life and advanced physical purification.</p>
+                <div className="text-3xl font-heading font-extrabold text-navy mb-6">₹10,999 <span className="text-xs font-normal text-ink-soft">one-time</span></div>
                 
                 <ul className="flex flex-col gap-3 text-[14px] text-ink-soft mb-8">
-                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Zero plumbing setup needed</li>
-                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Real-time TDS digital screen</li>
-                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> 4L clean storage capacity</li>
+                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> 2X Filter Life technology</li>
+                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Active Copper & Alkaline booster</li>
+                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> 7L stainless steel storage tank</li>
                   <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> 1-year comprehensive warranty</li>
                 </ul>
               </div>
-              <button onClick={() => openBooking("Countertop Pro")} className="btn-secondary w-full">Book Free Demo</button>
+              <button onClick={() => openBooking("Sure Delight 2X UV+UF")} className="btn-secondary w-full">Book Free Demo</button>
             </div>
 
             {/* Plan 2 - Featured */}
-            <div className="p-8 bg-paper border-2 border-primary rounded-radius flex flex-col justify-between shadow-md relative hover:shadow-lg transition-all duration-200">
+            <div className="p-6 sm:p-8 bg-paper border-2 border-primary rounded-radius flex flex-col justify-between shadow-md relative hover:shadow-lg transition-all duration-200">
               <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-primary to-secondary text-white text-[11px] font-bold py-1 px-4 rounded-full uppercase tracking-wider">
                 Best Seller
               </div>
               <div>
-                <span className="text-xs font-bold text-primary uppercase tracking-wider font-heading">Whole House Security</span>
-                <h3 className="text-xl font-bold text-navy mt-2 mb-1">Whole Home RO+UV</h3>
-                <p className="text-sm text-ink-soft mb-6 leading-relaxed">Pure water supply tapped directly to every faucet in the house.</p>
-                <div className="text-3xl font-heading font-extrabold text-navy mb-6">₹14,499 <span className="text-xs font-normal text-ink-soft">one-time</span></div>
+                <span className="text-xs font-bold text-primary uppercase tracking-wider font-heading">Advanced Home RO+UV</span>
+                <h3 className="text-xl font-bold text-navy mt-2 mb-1">Enrich Ritz Pro 2X RO+UV</h3>
+                <p className="text-sm text-ink-soft mb-6 leading-relaxed">Premium smart purification with copper and alkaline water boost technology.</p>
+                <div className="text-3xl font-heading font-extrabold text-navy mb-6">₹23,999 <span className="text-xs font-normal text-ink-soft">one-time</span></div>
                 
                 <ul className="flex flex-col gap-3 text-[14px] text-ink-soft mb-8">
-                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Connects to primary overhead tank</li>
-                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Purifies all faucets, showers & taps</li>
-                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> High-speed 15L/hr filtration output</li>
-                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Eco-water recovery system</li>
+                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> 9-stage RO+UV active mineralizer</li>
+                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Certified TDS reduction up to 90%</li>
+                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Real-time water quality indicators</li>
+                  <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> 60% Water Saver RO technology</li>
                   <li className="flex items-center gap-2"><Check className="w-4 h-4 text-success" /> Free professional installation</li>
                 </ul>
               </div>
-              <button onClick={() => openBooking("Whole Home RO+UV")} className="btn-primary w-full">Book Free Demo</button>
+              <button onClick={() => openBooking("Enrich Ritz Pro 2X RO+UV")} className="btn-primary w-full">Book Free Demo</button>
             </div>
 
             {/* Plan 3 */}
-            <div className="p-8 bg-paper border border-line rounded-radius flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200">
+            <div className="p-6 sm:p-8 bg-paper border border-line rounded-radius flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-200">
               <div>
                 <span className="text-xs font-bold text-gold-deep uppercase tracking-wider font-heading">Auto-Refill AMC Plan</span>
                 <h3 className="text-xl font-bold text-navy mt-2 mb-1">Annual Care AMC</h3>
@@ -300,8 +302,8 @@ export const Home: React.FC = () => {
       </section>
 
       {/* 8. CARE PLANS CALL TO ACTION */}
-      <section className="wrap my-14">
-        <div className="cta-banner rounded-radius-lg p-8 md:p-14 lg:p-16 text-white bg-gradient-to-br from-navy to-navy-deep border border-navy-deep shadow-lg flex flex-col items-start relative overflow-hidden">
+      <section className="wrap my-10 sm:my-14">
+        <div className="cta-banner rounded-radius-lg p-6 sm:p-8 md:p-14 lg:p-16 text-white bg-gradient-to-br from-navy to-navy-deep border border-navy-deep shadow-lg flex flex-col items-start relative overflow-hidden">
           {/* Background Image */}
           <div className="absolute inset-0 z-0">
             <img 
@@ -342,14 +344,14 @@ export const Home: React.FC = () => {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
             {[
               { name: "Rahul Deshmukh", city: "Bengaluru", text: "The Whole Home filter solved our tiles staining and hair fall issues completely. Highly recommend their professional installation team.", rating: 5 },
               { name: "Priya Nair", city: "Mumbai", text: "Countertop Pro is so portable and convenient. Perfect for rental apartments. The TDS levels dropped from 480 to 22 ppm instantly.", rating: 5 },
               { name: "Vikram Sen", city: "Delhi", text: "We subscribed to their annual maintenance contract (AMC). The filters arrive on time and their service technicians are extremely helpful.", rating: 5 }
             ].map((test, idx) => (
-              <div key={idx} className="p-6 bg-paper border border-line rounded-radius shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
-                <p className="text-[14px] text-ink-soft italic leading-relaxed mb-6 font-medium">"{test.text}"</p>
+              <div key={idx} className="p-5 sm:p-6 bg-paper border border-line rounded-radius shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
+                <p className="text-[13px] sm:text-[14px] text-ink-soft italic leading-relaxed mb-5 sm:mb-6 font-medium">"{test.text}"</p>
                 <div className="flex items-center justify-between border-t border-line pt-4 mt-auto">
                   <div className="flex flex-col">
                     <span className="font-bold text-navy text-[14px]">{test.name}</span>
@@ -375,7 +377,7 @@ export const Home: React.FC = () => {
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-navy mt-2">Frequently Asked Questions</h2>
           </div>
 
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-3 sm:gap-4">
             {[
               { q: "Which water purifier is best for borewell water?", a: "For borewell water, we recommend our Whole Home RO+UV or Under-Sink RO systems. Borewell water typically has high TDS (above 500 ppm) and heavy metal hardness, which can only be filtered down safely using an RO membrane." },
               { q: "Do you offer free installations?", a: "Yes, professional installation is free with every new purifier system purchased. Our technician will arrive within 2 hours of product delivery to mount and calibrate the system." },
@@ -385,13 +387,13 @@ export const Home: React.FC = () => {
               <div key={idx} className="border border-line rounded-radius-sm overflow-hidden bg-paper shadow-sm">
                 <button
                   onClick={() => toggleFaq(idx)}
-                  className="w-full flex items-center justify-between p-5 text-left font-bold text-navy hover:bg-mist transition-colors"
+                  className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-bold text-navy hover:bg-mist transition-colors min-h-[52px] sm:min-h-[56px]"
                 >
-                  <span>{faq.q}</span>
-                  <span className="text-primary font-normal text-xl">{faqActive === idx ? "−" : "+"}</span>
+                  <span className="text-[14px] sm:text-[15px] pr-4">{faq.q}</span>
+                  <span className="text-primary font-normal text-xl flex-shrink-0">{faqActive === idx ? "−" : "+"}</span>
                 </button>
                 {faqActive === idx && (
-                  <div className="p-5 border-t border-line text-[14.5px] text-ink-soft leading-relaxed bg-mist/35 font-medium">
+                  <div className="p-4 sm:p-5 border-t border-line text-[13px] sm:text-[14.5px] text-ink-soft leading-relaxed bg-mist/35 font-medium">
                     {faq.a}
                   </div>
                 )}

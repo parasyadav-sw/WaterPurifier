@@ -25,11 +25,17 @@ export const Navbar: React.FC = () => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
     } else {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     }
     return () => {
       document.body.style.overflow = '';
+      document.body.style.position = '';
+      document.body.style.width = '';
     };
   }, [isOpen]);
 
@@ -48,23 +54,12 @@ export const Navbar: React.FC = () => {
       label: "Products",
       path: "/products",
       dropdown: [
-        { label: "Countertop Pro", path: "/products/countertop-pro" },
-        { label: "Whole Home RO+UV", path: "/products/whole-home" },
-        { label: "Under-Sink Compact", path: "/products/under-sink-compact" },
-        { label: "Commercial Filters", path: "/products/commercial-filters" },
-        { label: "Industrial RO Plants", path: "/products/industrial-filters" },
-        { label: "Water Softeners", path: "/products/water-softeners" }
-      ]
-    },
-    {
-      label: "Accessories",
-      path: "/accessories",
-      dropdown: [
-        { label: "RO Membrane", path: "/accessories/ro-membrane" },
-        { label: "Carbon Cartridge", path: "/accessories/carbon-cartridge" },
-        { label: "Sediment Filter", path: "/accessories/sediment-filter" },
-        { label: "UV Lamp", path: "/accessories/uv-lamp" },
-        { label: "Booster Pump", path: "/accessories/booster-pump" }
+        { label: "Home Purifiers", path: "/products?filter=domestic" },
+        { label: "Commercial Systems", path: "/products?filter=commercial" },
+        { label: "Industrial Plants", path: "/products?filter=industrial" },
+        { label: "RO Technology", path: "/products?filter=ro" },
+        { label: "UV Sterilizers", path: "/products?filter=uv" },
+        { label: "Alkaline Boost", path: "/products?filter=alkaline" }
       ]
     },
     {
@@ -96,14 +91,14 @@ export const Navbar: React.FC = () => {
           boxShadow: scrolled ? '0 4px 20px rgba(3,4,94,0.08)' : 'none'
         }}
       >
-        <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-5 lg:px-8">
+        <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-5 lg:px-8">
           
           {/* LOGO */}
-          <Link to="/" className="flex items-center gap-2 font-heading font-extrabold text-navy tracking-tight z-50">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
+          <Link to="/" className="flex items-center gap-2 font-heading font-extrabold text-navy tracking-tight z-50 min-h-[44px] py-1 order-2 lg:order-none">
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
               <Droplet className="w-5 h-5 text-white" />
             </div>
-            <span className="text-xl">Aquapure</span>
+            <span className="text-lg sm:text-xl">Aquapure</span>
           </Link>
 
           {/* DESKTOP NAVIGATION */}
@@ -119,7 +114,7 @@ export const Navbar: React.FC = () => {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      `px-4 py-2 text-[13.5px] font-semibold rounded-lg transition-all duration-200 ${
+                      `px-3 xl:px-4 py-2 text-[13px] xl:text-[13.5px] font-semibold rounded-lg transition-all duration-200 min-h-[44px] flex items-center ${
                         isActive 
                           ? "text-primary bg-primary/10" 
                           : "text-ink-soft hover:text-navy hover:bg-mist"
@@ -130,7 +125,7 @@ export const Navbar: React.FC = () => {
                   </NavLink>
                 ) : (
                   <button
-                    className={`px-4 py-2 text-[13.5px] font-semibold rounded-lg flex items-center gap-1.5 transition-all duration-200 ${
+                    className={`px-3 xl:px-4 py-2 text-[13px] xl:text-[13.5px] font-semibold rounded-lg flex items-center gap-1.5 transition-all duration-200 min-h-[44px] ${
                       activeDropdown === item.label 
                         ? "text-primary bg-primary/10" 
                         : "text-ink-soft hover:text-navy hover:bg-mist"
@@ -158,7 +153,7 @@ export const Navbar: React.FC = () => {
                             <Link
                               key={subItem.label}
                               to={subItem.path}
-                              className="block px-5 py-3 text-[13.5px] font-medium text-ink-soft hover:text-navy hover:bg-mist/50 transition-colors mx-2 rounded-lg"
+                              className="block px-5 py-3 text-[13.5px] font-medium text-ink-soft hover:text-navy hover:bg-mist/50 transition-colors mx-2 rounded-lg min-h-[44px] flex items-center"
                             >
                               {subItem.label}
                             </Link>
@@ -173,12 +168,13 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* DESKTOP CTA */}
-          <div className="hidden lg:flex items-center gap-3">
-            <a href="tel:+918049832700" className="flex items-center gap-2 px-4 py-2 text-[13px] font-semibold text-navy hover:bg-mist rounded-lg transition-colors">
-              <Phone className="w-4 h-4 text-primary" />
-              <span>+91 80 4983 2700</span>
+          <div className="hidden lg:flex items-center gap-2 xl:gap-3">
+            <a href="tel:+918049832700" className="flex items-center gap-2 px-3 xl:px-4 py-2 text-[12px] xl:text-[13px] font-semibold text-navy hover:bg-mist rounded-lg transition-colors min-h-[44px]">
+              <Phone className="w-4 h-4 text-primary flex-shrink-0" />
+              <span className="hidden xl:inline">+91 80 4983 2700</span>
+              <span className="xl:hidden">Call</span>
             </a>
-            <Link to="/book-water-test" className="px-5 py-2.5 bg-gradient-to-r from-primary to-secondary text-white text-[13px] font-bold rounded-full hover:shadow-lg hover:shadow-primary/25 transition-all duration-300">
+            <Link to="/book-water-test" className="px-4 xl:px-5 py-2.5 bg-gradient-to-r from-primary to-secondary text-white text-[12px] xl:text-[13px] font-bold rounded-full hover:shadow-lg hover:shadow-primary/25 transition-all duration-300 min-h-[44px] flex items-center">
               Free Water Test
             </Link>
           </div>
@@ -186,7 +182,7 @@ export const Navbar: React.FC = () => {
           {/* MOBILE HAMBURGER */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden relative w-11 h-11 rounded-xl flex items-center justify-center text-navy hover:bg-mist transition-colors z-50"
+            className="lg:hidden relative w-11 h-11 min-w-[44px] min-h-[44px] rounded-xl flex items-center justify-center text-navy hover:bg-mist transition-colors z-50 order-1 lg:order-none"
             aria-expanded={isOpen}
             aria-label="Toggle navigation menu"
           >
@@ -233,24 +229,18 @@ export const Navbar: React.FC = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ x: '100%' }}
+            initial={{ x: '-100%' }}
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
+            exit={{ x: '-100%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed top-0 right-0 h-full w-[320px] max-w-[85vw] bg-white z-50 lg:hidden overflow-hidden shadow-2xl"
+            className="fixed top-0 left-0 h-full w-[300px] sm:w-[320px] max-w-[85vw] bg-white z-50 lg:hidden overflow-hidden shadow-2xl"
           >
             <div className="h-full flex flex-col">
               {/* Mobile Header */}
               <div className="h-[72px] flex items-center justify-between px-5 border-b border-line/10">
-                <Link to="/" onClick={() => setIsOpen(false)} className="flex items-center gap-2 font-heading font-extrabold text-navy">
-                  <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-                    <Droplet className="w-4 h-4 text-white" />
-                  </div>
-                  <span className="text-lg">Aquapure</span>
-                </Link>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="w-10 h-10 rounded-xl bg-mist flex items-center justify-center text-navy"
+                  className="w-10 h-10 min-w-[44px] min-h-[44px] rounded-xl bg-mist flex items-center justify-center text-navy"
                   aria-label="Close menu"
                 >
                   <X className="w-5 h-5" />
@@ -258,7 +248,7 @@ export const Navbar: React.FC = () => {
               </div>
 
               {/* Mobile Nav Items */}
-              <div className="flex-1 overflow-y-auto py-4 px-5">
+              <div className="flex-1 overflow-y-auto py-4 px-5 overscroll-contain">
                 <nav className="flex flex-col gap-1">
                   {navItems.map((item) => (
                     <div key={item.label}>
@@ -266,7 +256,7 @@ export const Navbar: React.FC = () => {
                         <Link
                           to={item.path}
                           onClick={() => setIsOpen(false)}
-                          className="flex items-center py-3.5 text-[16px] font-semibold text-navy hover:text-primary transition-colors"
+                          className="flex items-center py-3.5 text-[16px] font-semibold text-navy hover:text-primary transition-colors min-h-[48px]"
                         >
                           {item.label}
                         </Link>
@@ -274,7 +264,7 @@ export const Navbar: React.FC = () => {
                         <div>
                           <button
                             onClick={() => setActiveDropdown(activeDropdown === item.label ? null : item.label)}
-                            className="flex items-center justify-between w-full py-3.5 text-[16px] font-semibold text-navy hover:text-primary transition-colors"
+                            className="flex items-center justify-between w-full py-3.5 text-[16px] font-semibold text-navy hover:text-primary transition-colors min-h-[48px]"
                           >
                             {item.label}
                             <ChevronDown
@@ -298,7 +288,7 @@ export const Navbar: React.FC = () => {
                                   <Link
                                     to={item.path!}
                                     onClick={() => setIsOpen(false)}
-                                    className="py-2.5 px-3 text-[14px] font-semibold text-primary hover:bg-primary/5 rounded-lg transition-colors"
+                                    className="py-2.5 px-3 text-[14px] font-semibold text-primary hover:bg-primary/5 rounded-lg transition-colors min-h-[44px] flex items-center"
                                   >
                                     View All {item.label}
                                   </Link>
@@ -307,7 +297,7 @@ export const Navbar: React.FC = () => {
                                       key={subItem.label}
                                       to={subItem.path}
                                       onClick={() => setIsOpen(false)}
-                                      className="py-2.5 px-3 text-[14px] font-medium text-ink-soft hover:text-navy hover:bg-mist rounded-lg transition-colors"
+                                      className="py-2.5 px-3 text-[14px] font-medium text-ink-soft hover:text-navy hover:bg-mist rounded-lg transition-colors min-h-[44px] flex items-center"
                                     >
                                       {subItem.label}
                                     </Link>
@@ -324,18 +314,18 @@ export const Navbar: React.FC = () => {
               </div>
 
               {/* Mobile Footer CTA */}
-              <div className="p-5 border-t border-line/10 bg-mist/30">
+              <div className="p-5 border-t border-line/10 bg-mist/30 pb-[calc(20px+env(safe-area-inset-bottom,0px))]">
                 <a 
                   href="tel:+918049832700" 
-                  className="flex items-center justify-center gap-2 w-full py-3 mb-3 bg-white rounded-xl border border-line/10 text-navy font-semibold text-[14px] hover:bg-mist transition-colors"
+                  className="flex items-center justify-center gap-2 w-full py-3.5 mb-3 bg-white rounded-xl border border-line/10 text-navy font-semibold text-[14px] hover:bg-mist transition-colors min-h-[48px]"
                 >
-                  <Phone className="w-4 h-4 text-primary" />
+                  <Phone className="w-4 h-4 text-primary flex-shrink-0" />
                   +91 80 4983 2700
                 </a>
                 <Link
                   to="/book-water-test"
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-center w-full py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold text-[14px] rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all"
+                  className="flex items-center justify-center w-full py-3.5 bg-gradient-to-r from-primary to-secondary text-white font-bold text-[14px] rounded-xl hover:shadow-lg hover:shadow-primary/25 transition-all min-h-[48px]"
                 >
                   Book Free Water Test
                 </Link>

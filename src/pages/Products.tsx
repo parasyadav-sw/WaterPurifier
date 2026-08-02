@@ -19,13 +19,19 @@ export const Products: React.FC = () => {
 
   const filteredProducts = products.filter((p) => {
     if (filterTab === 'all') return true;
-    if (filterTab === 'domestic') return p.category.includes('Domestic') || p.category.includes('Countertop') || p.category.includes('Wall');
+    if (filterTab === 'domestic') return p.category.includes('Domestic');
     if (filterTab === 'commercial') return p.category.includes('Commercial');
     if (filterTab === 'industrial') return p.category.includes('Industrial');
-    if (filterTab === 'ro') return p.category.includes('RO') || p.category.includes('Domestic') || p.category.includes('Whole');
-    if (filterTab === 'uv') return p.category.includes('UV');
-    if (filterTab === 'uf') return p.category.includes('UF');
-    if (filterTab === 'softeners') return p.category.includes('Softener');
+    
+    // Technology-specific filters
+    const nameUpper = p.name.toUpperCase();
+    const tagUpper = p.tag.toUpperCase();
+    
+    if (filterTab === 'ro') return nameUpper.includes('RO') || tagUpper.includes('RO');
+    if (filterTab === 'uv') return nameUpper.includes('UV') || tagUpper.includes('UV');
+    if (filterTab === 'alkaline') return nameUpper.includes('ALKALINE') || tagUpper.includes('ALKALINE');
+    if (filterTab === 'copper') return nameUpper.includes('COPPER') || nameUpper.includes('+CU') || nameUpper.includes(' CU') || tagUpper.includes('COPPER');
+    if (filterTab === 'ss') return nameUpper.includes('STEEL') || nameUpper.includes('STAINLESS') || nameUpper.includes('SS ') || tagUpper.includes('STAINLESS') || tagUpper.includes('STEEL');
     return true;
   });
 
@@ -41,26 +47,27 @@ export const Products: React.FC = () => {
           Purification systems for every household and industry
         </h1>
         <p className="text-ink-soft leading-relaxed">
-          From compact plug-and-play kitchen countertop filters to high-performance heavy industrial RO skids, discover the ideal safety standard for your water.
+          From advanced domestic RO+UV kitchen purifiers to high-capacity commercial purification systems, discover the ideal safety standard for your water.
         </p>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-12 border-b border-line/10 pb-6 max-w-4xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 sm:mb-12 border-b border-line/10 pb-5 sm:pb-6 max-w-5xl mx-auto">
         {[
           { id: 'all', label: 'All Systems' },
-          { id: 'domestic', label: 'Home Filters' },
+          { id: 'domestic', label: 'Home Purifiers' },
           { id: 'commercial', label: 'Commercial' },
           { id: 'industrial', label: 'Industrial Plants' },
-          { id: 'ro', label: 'RO Membrane' },
-          { id: 'uv', label: 'Active UV' },
-          { id: 'uf', label: 'Gravity UF' },
-          { id: 'softeners', label: 'Water Softeners' }
+          { id: 'ro', label: 'RO Tech' },
+          { id: 'uv', label: 'UV Sterilizers' },
+          { id: 'alkaline', label: 'Alkaline Boost' },
+          { id: 'copper', label: 'Active Copper' },
+          { id: 'ss', label: 'Stainless Steel' }
         ].map((tab) => (
           <button
             key={tab.id}
             onClick={() => setFilterTab(tab.id)}
-            className={`px-5 py-3 min-h-[44px] rounded-full text-[13.5px] font-semibold border transition-all duration-300 ${
+            className={`px-4 sm:px-5 py-2.5 sm:py-3 min-h-[44px] rounded-full text-[12px] sm:text-[13.5px] font-semibold border transition-all duration-300 ${
               filterTab === tab.id
                 ? "bg-navy text-white border-navy shadow-sm"
                 : "bg-paper text-ink-soft border-line/15 hover:bg-mist/35 hover:text-navy"
@@ -80,26 +87,24 @@ export const Products: React.FC = () => {
           </button>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {filteredProducts.map((p) => (
             <article
               key={p.slug}
-              className={`product-card bg-mist/35 border border-line/10 rounded-radius overflow-hidden flex flex-col justify-between hover:shadow-md transition-all duration-300 relative ${
-                p.slug === 'whole-home' ? 'border-2 border-teal bg-paper shadow-sm' : ''
-              }`}
+              className="product-card bg-paper border border-line/10 rounded-radius overflow-hidden flex flex-col justify-between hover:shadow-md transition-all duration-300 relative"
             >
-              {p.slug === 'whole-home' && (
-                <div className="product-badge absolute top-4 left-4 bg-teal text-white text-[11px] font-bold py-1 px-3 rounded-radius-sm">
-                  Best Seller
+              {p.tag && (
+                <div className="product-badge absolute top-4 left-4 bg-navy text-white text-[9.5px] font-bold py-1 px-3 rounded-radius-sm uppercase tracking-wider shadow-sm z-10">
+                  {p.tag}
                 </div>
               )}
               
               {/* Product Image */}
-              <div className="h-48 bg-mist-deep/30 flex items-center justify-center border-b border-line/10 overflow-hidden">
+              <div className="h-56 bg-white flex items-center justify-center border-b border-line/10 overflow-hidden p-6 relative">
                 <img 
                   src={p.image} 
                   alt={p.name}
-                  className="w-full h-full object-cover"
+                  className="max-h-full max-w-full object-contain hover:scale-105 transition-transform duration-300"
                   loading="lazy"
                 />
               </div>
@@ -107,12 +112,12 @@ export const Products: React.FC = () => {
               <div className="p-6 flex flex-col flex-grow">
                 <div className="flex justify-between items-start mb-2">
                   <span className="card-tag text-xs font-bold text-teal-deep">{p.tag}</span>
-                  <span className="text-[11px] font-semibold text-ink-soft uppercase tracking-wider">{p.category}</span>
+                  <span className="text-[11px] font-semibold text-ink-soft uppercase tracking-wider">{p.category.replace(' Water Filters', '')}</span>
                 </div>
-                <h3 className="text-lg font-bold text-navy mb-2 hover:text-teal transition-colors">
+                <h3 className="text-base font-bold text-navy mb-2 hover:text-teal transition-colors line-clamp-2">
                   <Link to={`/products/${p.slug}`}>{p.name}</Link>
                 </h3>
-                <p className="text-[14px] text-ink-soft leading-relaxed mb-6 flex-grow">
+                <p className="text-[13px] text-ink-soft leading-relaxed mb-6 flex-grow line-clamp-3">
                   {p.tagline}
                 </p>
                 <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 border-t border-line/10 pt-4 mt-auto">

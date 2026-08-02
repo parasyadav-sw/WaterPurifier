@@ -88,11 +88,11 @@ export const WaterProblems: React.FC = () => {
       </div>
 
       {/* Problems list */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-5xl mx-auto">
         {problems.map((prob) => (
           <article
             key={prob.id}
-            className="p-6 md:p-8 bg-mist/35 border border-line/10 rounded-radius flex flex-col justify-between hover:shadow-md transition-all duration-300"
+            className="p-5 sm:p-6 md:p-8 bg-mist/35 border border-line/10 rounded-radius flex flex-col justify-between hover:shadow-md transition-all duration-300"
           >
             <div>
               <div className="flex items-center gap-3 mb-4">

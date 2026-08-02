@@ -8,7 +8,6 @@ import { BookingModal } from './components/BookingModal';
 import { Home } from './pages/Home';
 import { Products } from './pages/Products';
 import { ProductDetails } from './pages/ProductDetails';
-import { Accessories } from './pages/Accessories';
 import { Services } from './pages/Services';
 import { WaterProblems } from './pages/WaterProblems';
 import { Industries } from './pages/Industries';
@@ -40,8 +39,6 @@ export const App: React.FC = () => {
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/products/:slug" element={<ProductDetails />} />
-          <Route path="/accessories" element={<Accessories />} />
-          <Route path="/accessories/:slug" element={<Accessories />} />
           <Route path="/services" element={<Services />} />
           <Route path="/services/:slug" element={<Services />} />
           <Route path="/water-problems" element={<WaterProblems />} />

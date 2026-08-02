@@ -1,15 +1,17 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { products, Product } from '../data/products';
 import { useBooking } from '../context/BookingContext';
-import { ShieldCheck, Info, Check, HelpCircle, User, Phone, Mail, FileText } from 'lucide-react';
+import { ShieldCheck, Info, Check, HelpCircle, User, Phone, Mail, FileText, ChevronDown, ChevronUp } from 'lucide-react';
 
 export const ProductDetails: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const { openBooking } = useBooking();
 
   const [faqActive, setFaqActive] = useState<number | null>(null);
+  const [activeImage, setActiveImage] = useState<string>('');
+  const [showAllSpecs, setShowAllSpecs] = useState(false);
   
   // Enquiry form state
   const [name, setName] = useState('');
@@ -22,6 +24,13 @@ export const ProductDetails: React.FC = () => {
   const product = useMemo(() => {
     return products.find((p) => p.slug === slug);
   }, [slug]);
+
+  useEffect(() => {
+    if (product) {
+      setActiveImage(product.image);
+      setShowAllSpecs(false);
+    }
+  }, [product]);
 
   if (!product) {
     return (
@@ -75,37 +84,46 @@ export const ProductDetails: React.FC = () => {
       className="pb-16"
     >
       {/* Product Hero Details Section */}
-      <section className="wrap py-10 md:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <section className="wrap py-8 sm:py-10 md:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
           
           {/* Gallery & Video (Left Column) */}
           <div className="lg:col-span-7 flex flex-col gap-6">
             
             {/* Main Product Image */}
-            <div className="bg-mist/30 border border-line/10 rounded-radius overflow-hidden flex items-center justify-center min-h-[340px] md:min-h-[420px]">
+            <div className="bg-white border border-line/10 rounded-radius overflow-hidden flex items-center justify-center min-h-[280px] sm:min-h-[340px] md:min-h-[420px] p-6 shadow-sm">
               <img 
-                src={product.image} 
+                src={activeImage || product.image} 
                 alt={product.name}
-                className="w-full h-full object-cover"
+                className="max-h-[380px] md:max-h-[440px] max-w-full object-contain"
               />
             </div>
 
             {/* Gallery thumbnails */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-4">
-              {product.gallery.map((img, idx) => (
-                <div key={idx} className="bg-mist/20 border border-line/5 rounded-radius-sm h-24 overflow-hidden cursor-pointer hover:border-teal transition-all">
-                  <img 
-                    src={img} 
-                    alt={`${product.name} view ${idx + 1}`}
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
+            {product.gallery && product.gallery.length > 1 && (
+              <div className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 hide-scrollbar">
+                {product.gallery.map((img, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setActiveImage(img)}
+                    className={`bg-white border-2 rounded-radius-sm h-16 w-16 sm:h-20 sm:w-20 overflow-hidden flex-shrink-0 cursor-pointer transition-all p-1 flex items-center justify-center ${
+                      activeImage === img ? 'border-teal shadow-sm scale-95' : 'border-line/10 hover:border-teal/50'
+                    }`}
+                  >
+                    <img 
+                      src={img} 
+                      alt={`${product.name} view ${idx + 1}`}
+                      className="max-h-full max-w-full object-contain"
+                      loading="lazy"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
 
             {/* Product Video Panel */}
-            <div className="mt-4 rounded-radius overflow-hidden bg-mist relative min-h-[220px] flex items-center shadow-inner">
+            <div className="mt-3 sm:mt-4 rounded-radius overflow-hidden bg-mist relative min-h-[180px] sm:min-h-[220px] flex items-center shadow-inner">
               <video
                 className="absolute inset-0 w-full h-full object-cover z-10 opacity-75 pointer-events-none"
                 autoPlay
@@ -169,10 +187,41 @@ export const ProductDetails: React.FC = () => {
                 </div>
                 <div className="flex justify-between text-[14px]">
                   <span className="text-ink-soft font-medium">TDS Tolerance Range</span>
-                  <span className="text-navy font-bold">{product.specifications["Input Water TDS Range"] || product.specifications["Input TDS Tolerated"] || "50 to 1500 ppm"}</span>
+                  <span className="text-navy font-bold">
+                    {product.specifications["Input Water TDS Range"] || 
+                     product.specifications["Recommended for TDS"] || 
+                     product.specifications["TDS Range"] || 
+                     product.specifications["Input TDS Tolerated"] || 
+                     "Upto 2000 ppm"}
+                  </span>
                 </div>
               </div>
             </div>
+
+            {/* Product Variants (if any) */}
+            {product.variants && product.variants.length > 0 && (
+              <div className="border border-line/10 rounded-radius p-6 bg-paper shadow-sm">
+                <h4 className="text-sm font-bold uppercase tracking-wider text-navy mb-3">Available Variants</h4>
+                <div className="flex flex-wrap gap-2">
+                  {product.variants.map((v) => {
+                    const isCurrent = v.slug === product.slug;
+                    return (
+                      <Link
+                        key={v.materialId}
+                        to={`/products/${v.slug}`}
+                        className={`px-3 py-1.5 rounded-full text-xs font-semibold border transition-all ${
+                          isCurrent
+                            ? 'bg-navy text-white border-navy shadow-sm'
+                            : 'bg-mist/10 text-ink-soft border-line/10 hover:bg-mist/25 hover:text-navy'
+                        }`}
+                      >
+                        {v.name}
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             {/* Features lists */}
             <div className="flex flex-col gap-3.5">
@@ -200,13 +249,32 @@ export const ProductDetails: React.FC = () => {
           <div className="flex flex-col gap-4">
             <h3 className="text-xl font-bold text-navy mb-2">Technical Specifications</h3>
             <div className="border border-line/10 rounded-radius-sm overflow-hidden bg-paper">
-              {Object.entries(product.specifications).map(([key, val], idx) => (
-                <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 p-4 text-[14px] border-b border-line/5 last:border-b-0 hover:bg-mist/10 transition-colors gap-1 sm:gap-0">
-                  <span className="text-ink-soft font-medium">{key}</span>
-                  <span className="text-navy font-bold">{val}</span>
-                </div>
-              ))}
+              {Object.entries(product.specifications)
+                .slice(0, showAllSpecs ? undefined : 8)
+                .map(([key, val], idx) => (
+                  <div key={idx} className="grid grid-cols-1 sm:grid-cols-2 p-4 text-[14px] border-b border-line/5 last:border-b-0 hover:bg-mist/10 transition-colors gap-1 sm:gap-0">
+                    <span className="text-ink-soft font-medium">{key}</span>
+                    <span className="text-navy font-bold">{val}</span>
+                  </div>
+                ))}
             </div>
+            {Object.keys(product.specifications).length > 8 && (
+              <button
+                type="button"
+                onClick={() => setShowAllSpecs(!showAllSpecs)}
+                className="flex items-center justify-center gap-1.5 py-2.5 px-4 text-xs font-bold text-teal border border-teal/20 rounded-radius hover:bg-teal/5 transition-all w-full sm:w-auto self-start mt-2"
+              >
+                {showAllSpecs ? (
+                  <>
+                    Show Less <ChevronUp className="w-4 h-4" />
+                  </>
+                ) : (
+                  <>
+                    Show All {Object.keys(product.specifications).length} Specifications <ChevronDown className="w-4 h-4" />
+                  </>
+                )}
+              </button>
+            )}
           </div>
 
           {/* Right Column: Purification Stages */}
@@ -228,8 +296,8 @@ export const ProductDetails: React.FC = () => {
       </section>
 
       {/* Benefits, Warranty & Installation Info */}
-      <section className="section bg-mist/15 border-y border-line/5 my-10">
-        <div className="wrap grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="section bg-mist/15 border-y border-line/5 my-8 sm:my-10">
+        <div className="wrap grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Benefits */}
           <div className="p-6 bg-paper border border-line/10 rounded-radius shadow-sm flex flex-col gap-3">
             <span className="w-10 h-10 rounded-full bg-teal/10 flex items-center justify-center text-teal mb-2">
@@ -269,12 +337,12 @@ export const ProductDetails: React.FC = () => {
       </section>
 
       {/* Enquiry Form & FAQ */}
-      <section className="wrap py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <section className="wrap py-8 sm:py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-start">
           
           {/* FAQs (Left Column) */}
-          <div className="lg:col-span-7 flex flex-col gap-4">
-            <h3 className="text-xl font-bold text-navy mb-4">Product FAQs</h3>
+          <div className="lg:col-span-7 flex flex-col gap-3 sm:gap-4">
+            <h3 className="text-lg sm:text-xl font-bold text-navy mb-3 sm:mb-4">Product FAQs</h3>
             <div className="flex flex-col gap-3">
               {product.faq.map((item, idx) => (
                 <div key={idx} className="border border-line/10 rounded-radius-sm overflow-hidden bg-mist/5">
@@ -385,9 +453,9 @@ export const ProductDetails: React.FC = () => {
 
       {/* Related Products Section */}
       {relatedProducts.length > 0 && (
-        <section className="wrap py-10 border-t border-line/10">
-          <h3 className="text-xl font-bold text-navy mb-6">Related Purification Systems</h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <section className="wrap py-8 sm:py-10 border-t border-line/10">
+          <h3 className="text-lg sm:text-xl font-bold text-navy mb-5 sm:mb-6">Related Purification Systems</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 sm:gap-6">
             {relatedProducts.map((rel) => (
               <div key={rel.slug} className="bg-mist/35 border border-line/10 rounded-radius p-6 flex flex-col justify-between hover:shadow-sm transition-all duration-300">
                 <div>

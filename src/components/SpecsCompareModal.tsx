@@ -24,11 +24,11 @@ export const SpecsCompareModal: React.FC<SpecsCompareModalProps> = ({ isOpen, on
 
   const handleBookDemo = () => {
     onClose();
-    openBooking("Whole Home RO+UV");
+    openBooking("Enrich Ritz Pro 2X RO+UV");
   };
 
   return (
-    <div className="fixed inset-0 z-[110] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[110] flex items-center justify-center p-3 sm:p-4">
       {/* Backdrop */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -44,7 +44,7 @@ export const SpecsCompareModal: React.FC<SpecsCompareModalProps> = ({ isOpen, on
         animate={{ opacity: 1, y: 0, scale: 1 }}
         exit={{ opacity: 0, y: 30, scale: 0.95 }}
         transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-        className="relative z-10 w-full max-w-4xl rounded-radius bg-paper/90 border border-line/10 p-6 md:p-10 shadow-lg backdrop-blur-lg max-h-[90vh] overflow-y-auto"
+        className="relative z-10 w-full max-w-4xl rounded-radius bg-paper/90 border border-line/10 p-5 sm:p-6 md:p-10 shadow-lg backdrop-blur-lg max-h-[90vh] max-h-[90dvh] overflow-y-auto overscroll-contain"
       >
         <button
           onClick={onClose}
@@ -65,24 +65,24 @@ export const SpecsCompareModal: React.FC<SpecsCompareModalProps> = ({ isOpen, on
             <thead>
               <tr className="bg-mist-deep/40">
                 <th className="p-4 border-b border-line/10 text-navy font-bold">Feature</th>
-                <th className="p-4 border-b border-line/10 text-navy font-bold">Countertop Pro</th>
+                <th className="p-4 border-b border-line/10 text-navy font-bold">Sure Delight 2X UV+UF</th>
                 <th className="p-4 border-b border-line/10 text-navy font-bold bg-mist/60 border-x-2 border-teal/20">
-                  Whole Home RO+UV (Best Seller)
+                  Enrich Ritz Pro 2X RO+UV (Best Seller)
                 </th>
-                <th className="p-4 border-b border-line/10 text-navy font-bold">Under-Sink Compact</th>
+                <th className="p-4 border-b border-line/10 text-navy font-bold">UTC UV Booster</th>
               </tr>
             </thead>
             <tbody>
               {[
-                { label: "MRP Price", countertop: "₹6,999", wholehome: "₹14,499", undersink: "₹9,299" },
-                { label: "Installation Type", countertop: "Countertop (Plug & Play)", wholehome: "Inlet Mainline (Wall Mount)", undersink: "Under-Sink cabinet" },
-                { label: "Filtration Stages", countertop: "5 Stages (RO+Carbon)", wholehome: "7 Stages (RO+UV+Mineralizer)", undersink: "6 Stages (RO+Carbon+UV)" },
-                { label: "Ideal TDS Range", countertop: "50 - 600 ppm", wholehome: "100 - 1500+ ppm", undersink: "50 - 1000 ppm" },
-                { label: "Purifying Capacity", countertop: "8 L/hr", wholehome: "20 L/hr", undersink: "12 L/hr" },
-                { label: "Active UV Shield", countertop: "No", wholehome: "Yes (Stainless Steel Chamber)", undersink: "Yes (Inline LED UV)" },
-                { label: "Dispense Type", countertop: "Manual Cup lever", wholehome: "Press-Fit Tap & Continuous", undersink: "Dedicated Gooseneck Faucet" },
-                { label: "Tank Volume", countertop: "4 Litres (Detachable)", wholehome: "10 Litres (Food-grade ABS)", undersink: "8 Litres (Pressurized steel)" },
-                { label: "Power Backup", countertop: "No", wholehome: "Yes (Gravity-feed output)", undersink: "Yes" }
+                { label: "MRP Price", countertop: "₹10,999", wholehome: "₹23,999", undersink: "₹16,499" },
+                { label: "Installation Type", countertop: "Wall Mount / Countertop", wholehome: "Wall Mount / Countertop", undersink: "Under-the-Counter (UTC)" },
+                { label: "Filtration Stages", countertop: "7 Stages", wholehome: "9 Stages", undersink: "6 Stages" },
+                { label: "Ideal TDS Range", countertop: "Upto 200 ppm (Municipal)", wholehome: "Upto 2000 ppm (Borewell/Tank)", undersink: "Upto 200 ppm (Municipal)" },
+                { label: "Purifying Capacity", countertop: "12 L/hr", wholehome: "20 L/hr", undersink: "15 L/hr" },
+                { label: "Active UV Shield", countertop: "Yes (UV e-Boiling)", wholehome: "Yes (Advanced UV LED)", undersink: "Yes (UV Booster)" },
+                { label: "Dispense Type", countertop: "Press-Fit Tap", wholehome: "Press-Fit Tap & Continuous", undersink: "Premium Faucet" },
+                { label: "Tank Volume", countertop: "7 Litres (Stainless Steel)", wholehome: "6 Litres (Stainless Steel)", undersink: "8 Litres (External tank)" },
+                { label: "Power Backup", countertop: "Yes (Gravity dispense)", wholehome: "Yes", undersink: "Yes" }
               ].map((row, idx) => (
                 <tr key={idx} className="border-b border-line/10 hover:bg-mist/10">
                   <td className="p-4 font-bold text-navy">{row.label}</td>
@@ -111,7 +111,7 @@ export const SpecsCompareModal: React.FC<SpecsCompareModalProps> = ({ isOpen, on
             onClick={handleBookDemo}
             className="btn-primary"
           >
-            Book Whole Home Demo
+            Book Ritz Pro Demo
           </button>
         </div>
       </motion.div>

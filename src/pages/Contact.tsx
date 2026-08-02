@@ -58,10 +58,10 @@ export const Contact: React.FC = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch max-w-5xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-stretch max-w-5xl mx-auto">
         
         {/* Contact Info (Column 5) */}
-        <div className="lg:col-span-5 flex flex-col gap-6 bg-mist/20 border border-line/10 rounded-radius p-7 md:p-8">
+        <div className="lg:col-span-5 flex flex-col gap-5 sm:gap-6 bg-mist/20 border border-line/10 rounded-radius p-5 sm:p-7 md:p-8">
           <div>
             <h3 className="text-xl font-bold text-navy mb-4">Direct Channels</h3>
             
@@ -126,7 +126,7 @@ export const Contact: React.FC = () => {
         </div>
 
         {/* Contact Form (Column 7) */}
-        <div className="lg:col-span-7 bg-paper border border-line/10 rounded-radius p-7 md:p-10 shadow-sm">
+        <div className="lg:col-span-7 bg-paper border border-line/10 rounded-radius p-5 sm:p-7 md:p-10 shadow-sm">
           <h3 className="text-xl font-bold text-navy mb-2">Write to us</h3>
           <p className="text-[14px] text-ink-soft mb-6">Have an architectural specification request? Send us a message and we'll reply shortly.</p>
 

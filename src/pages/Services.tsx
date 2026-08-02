@@ -25,12 +25,12 @@ export const Services: React.FC = () => {
       </div>
 
       {/* Services Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {services.map((svc) => (
           <article
             key={svc.slug}
             onClick={() => setSelectedService(svc)}
-            className="card bg-mist/35 border border-line/10 rounded-radius p-7 flex flex-col justify-between hover:shadow-md cursor-pointer hover:border-teal transition-all duration-300"
+            className="card bg-mist/35 border border-line/10 rounded-radius p-6 sm:p-7 flex flex-col justify-between hover:shadow-md cursor-pointer hover:border-teal transition-all duration-300"
           >
             <div>
               {svc.image && (
@@ -57,7 +57,7 @@ export const Services: React.FC = () => {
       {/* Detailed overlay modal for single service */}
       <AnimatePresence>
         {selectedService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -70,7 +70,7 @@ export const Services: React.FC = () => {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 30, scale: 0.95 }}
               transition={{ type: 'spring', damping: 25, stiffness: 350 }}
-              className="relative z-10 w-full max-w-xl rounded-radius bg-paper p-6 md:p-10 shadow-lg border border-line/10 max-h-[90vh] overflow-y-auto"
+              className="relative z-10 w-full max-w-xl rounded-radius bg-paper p-5 sm:p-6 md:p-10 shadow-lg border border-line/10 max-h-[90vh] max-h-[90dvh] overflow-y-auto overscroll-contain"
             >
               <button
                 onClick={() => setSelectedService(null)}

@@ -98,7 +98,7 @@ export const TdsSimulator: React.FC = () => {
   }, [tds]);
 
   return (
-    <div className="tds-widget glass max-w-5xl mx-auto border border-line/10 rounded-radius p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="tds-widget glass max-w-5xl mx-auto border border-line/10 rounded-radius p-5 sm:p-6 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
       {/* Left panel controls */}
       <div>
         <div className="control-group">

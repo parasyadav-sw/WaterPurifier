@@ -22,18 +22,18 @@ export const FAQ: React.FC = () => {
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-navy mt-3 tracking-tight">Frequently Asked Questions</h1>
       </div>
 
-      <div className="flex flex-col gap-4">
+      <div className="flex flex-col gap-3 sm:gap-4">
         {faqs.map((faq, idx) => (
           <div key={idx} className="border border-line/10 rounded-radius-sm overflow-hidden bg-mist/10">
             <button
               onClick={() => setActive(active === idx ? null : idx)}
-              className="w-full flex items-center justify-between p-5 text-left font-bold text-navy hover:bg-mist/30 transition-colors"
+              className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-bold text-navy hover:bg-mist/30 transition-colors min-h-[52px] sm:min-h-[56px]"
             >
-              <span>{faq.q}</span>
-              <span className="text-teal font-normal text-xl">{active === idx ? "−" : "+"}</span>
+              <span className="text-[14px] sm:text-[15px] pr-4">{faq.q}</span>
+              <span className="text-teal font-normal text-xl flex-shrink-0">{active === idx ? "−" : "+"}</span>
             </button>
             {active === idx && (
-              <div className="p-5 border-t border-line/10 text-[14.5px] text-ink-soft leading-relaxed bg-paper">
+              <div className="p-4 sm:p-5 border-t border-line/10 text-[13px] sm:text-[14.5px] text-ink-soft leading-relaxed bg-paper">
                 {faq.a}
               </div>
             )}

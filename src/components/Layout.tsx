@@ -8,7 +8,7 @@ interface LayoutProps {
 
 export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div className="flex flex-col min-h-screen relative">
+    <div className="flex flex-col min-h-screen relative overflow-x-hidden">
       {/* Subtle overlay for content readability over background image */}
       <div 
         className="fixed inset-0 pointer-events-none" 
@@ -18,8 +18,8 @@ export const Layout: React.FC<LayoutProps> = ({ children }) => {
         }} 
       />
       <Navbar />
-      {/* Offsetting the fixed header height of 80px (pt-20) */}
-      <main className="flex-grow pt-20 relative" style={{ zIndex: 1 }}>
+      {/* Navbar height is 72px, so pt-[72px] */}
+      <main className="flex-grow pt-[72px] relative w-full max-w-full" style={{ zIndex: 1 }}>
         {children}
       </main>
       <Footer />

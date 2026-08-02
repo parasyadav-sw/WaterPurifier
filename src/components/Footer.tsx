@@ -1,14 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Droplet, MapPin, Phone, Mail, ArrowRight, 
   Facebook, Twitter, Instagram, Youtube, Linkedin,
-  Shield, Award, CheckCircle2, Heart
+  ShieldCheck, Settings, Wrench, Calendar, Zap,
+  ChevronDown, ChevronUp, ArrowUp, Clock, ExternalLink
 } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+  const [openSection, setOpenSection] = useState<string | null>(null);
+
+  // Monitor scroll height for back-to-top button
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,207 +36,347 @@ export const Footer: React.FC = () => {
     }
   };
 
+  const toggleSection = (section: string) => {
+    setOpenSection(openSection === section ? null : section);
+  };
+
+  const productLinks = [
+    { label: "Domestic RO Purifiers", path: "/products?filter=domestic" },
+    { label: "Commercial RO Systems", path: "/products?filter=commercial" },
+    { label: "UV Water Purifiers", path: "/products?filter=uv" },
+    { label: "UF Gravity Filters", path: "/products?filter=uf" },
+    { label: "Alkaline Water Boosters", path: "/products?filter=alkaline" },
+    { label: "Industrial RO Plants", path: "/products?filter=industrial" },
+    { label: "Water Softeners", path: "/products?filter=ss" },
+  ];
+
+  const supportLinks = [
+    { label: "Book Free Water Test", path: "/book-water-test" },
+    { label: "Request Installation", path: "/book-service" },
+    { label: "Annual Care AMC Plans", path: "/services/amc" },
+    { label: "RO Filter Replacement", path: "/services/filter-replacement" },
+    { label: "Warranty Information", path: "/warranty" },
+    { label: "Help & Support FAQs", path: "/faq" },
+  ];
+
+  const quickLinks = [
+    { label: "Home", path: "/" },
+    { label: "Products Catalog", path: "/products" },
+    { label: "Our Services", path: "/services" },
+    { label: "Water Problem Guide", path: "/water-problems" },
+    { label: "Industries We Serve", path: "/industries" },
+    { label: "About Aquapure", path: "/about" },
+    { label: "Customer Testimonials", path: "/testimonials" },
+    { label: "Contact Us Support", path: "/contact" },
+  ];
+
   return (
-    <footer className="relative overflow-hidden">
-      {/* Decorative top wave */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-accent" />
-      
-      {/* Main Footer */}
+    <footer className="relative overflow-hidden bg-navy-deep text-white">
+      {/* 1. LAYERED WATER WAVES TRANSITION */}
+      <div className="relative w-full h-16 overflow-hidden select-none pointer-events-none" style={{ backgroundColor: 'transparent' }}>
+        <svg 
+          className="absolute bottom-0 left-0 w-full h-16 text-navy fill-current" 
+          viewBox="0 0 1440 74" 
+          fill="none" 
+          xmlns="http://www.w3.org/2000/svg" 
+          preserveAspectRatio="none"
+        >
+          <path d="M0,32 C240,70 480,70 720,48 C960,26 1200,-18 1440,8 L1440,74 L0,74 Z" opacity="0.4" fill="#03045E"/>
+          <path d="M0,48 C240,10 480,82 720,54 C960,26 1200,48 1440,32 L1440,74 L0,74 Z" fill="#000814"/>
+        </svg>
+      </div>
+
       <div 
-        className="relative pt-16 pb-8"
+        className="relative pt-6 pb-8 px-4 sm:px-6 lg:px-8"
         style={{
-          background: 'linear-gradient(135deg, #03045E 0%, #020345 50%, #0077B6 100%)'
+          background: 'linear-gradient(180deg, #000814 0%, #020345 50%, #03045E 100%)'
         }}
       >
-        {/* Background decorative elements */}
+        {/* Background glow graphics */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-secondary/5 blur-3xl" />
-          <div className="absolute -bottom-40 -left-40 w-80 h-80 rounded-full bg-primary/10 blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full border border-white/5" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-white/5" />
+          <div className="absolute -top-30 -right-30 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute top-1/2 left-10 w-96 h-96 rounded-full bg-secondary/5 blur-3xl" />
         </div>
 
-        <div className="wrap relative z-10">
-          {/* Newsletter CTA Section */}
-          <div className="mb-14 pb-14 border-b border-white/10">
-            <div className="max-w-4xl mx-auto text-center">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                <Droplet className="w-4 h-4 text-secondary" />
-                <span className="text-[12px] font-bold text-white/90 uppercase tracking-wider">Stay Updated</span>
-              </div>
-              <h3 className="text-2xl md:text-3xl font-heading font-bold text-white mb-4">
-                Get water quality tips & exclusive offers
-              </h3>
-              <p className="text-[15px] text-white/60 mb-8 max-w-lg mx-auto">
-                Join 50,000+ homeowners receiving monthly insights on water purification, maintenance tips, and special discounts.
+        <div className="max-w-7xl mx-auto relative z-10">
+          
+          {/* 2. HELP CONSULTATION CTA */}
+          <div className="bg-gradient-to-r from-primary/10 via-secondary/15 to-primary/5 border border-white/10 rounded-3xl p-6 sm:p-10 mb-12 flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden backdrop-blur-sm">
+            <div className="absolute -right-16 -top-16 w-48 h-48 rounded-full bg-secondary/10 blur-3xl" />
+            <div className="relative z-10 max-w-2xl text-left">
+              <span className="text-xs font-extrabold uppercase text-secondary tracking-widest">Expert Advice</span>
+              <h3 className="text-xl sm:text-2xl font-bold text-white mt-1 mb-2">Need Help Choosing a Water Purifier?</h3>
+              <p className="text-[13.5px] sm:text-[14.5px] text-white/70 leading-relaxed">
+                Unsure about your water's TDS or contamination level? Get a free water analysis and recommendation from our certified water specialists.
               </p>
-              
-              {subscribed ? (
-                <div className="inline-flex items-center gap-2 bg-success/20 backdrop-blur-sm px-6 py-3 rounded-full">
-                  <CheckCircle2 className="w-5 h-5 text-success" />
-                  <span className="text-white font-semibold">Thank you for subscribing!</span>
-                </div>
-              ) : (
-                <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="Enter your email address"
-                    className="flex-1 px-5 py-3.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white placeholder:text-white/40 text-[14px] font-medium outline-none focus:border-secondary focus:bg-white/15 transition-all"
-                    required
-                  />
-                  <button
-                    type="submit"
-                    className="px-6 py-3.5 rounded-full bg-gradient-to-r from-secondary to-primary text-white font-bold text-[14px] hover:shadow-lg hover:shadow-secondary/30 transition-all duration-300 flex items-center justify-center gap-2"
-                  >
-                    Subscribe
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </form>
-              )}
+            </div>
+            <div className="relative z-10 flex flex-wrap gap-3.5 flex-shrink-0 w-full sm:w-auto">
+              <Link to="/book-water-test" className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-primary to-secondary text-white text-[13.5px] font-bold rounded-full hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 min-h-[44px] flex items-center justify-center">
+                Book Free Consultation
+              </Link>
+              <a href="tel:+918049832700" className="w-full sm:w-auto px-6 py-3 bg-white/10 hover:bg-white/15 text-white text-[13.5px] font-bold rounded-full border border-white/10 hover:border-white/20 transition-all min-h-[44px] flex items-center justify-center">
+                Call Specialist
+              </a>
             </div>
           </div>
 
-          {/* Main Footer Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-12">
+          {/* 3. TRUST ELEMENTS ROW */}
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6 sm:gap-8 mb-12 border-b border-white/10 pb-10">
+            {[
+              { icon: ShieldCheck, title: "Certified Products", desc: "WQA & NSF Standard 58 compliant systems" },
+              { icon: Settings, title: "Genuine Spare Parts", desc: "100% original filters & high-grade membranes" },
+              { icon: Wrench, title: "Expert Setup", desc: "Professional installation by certified technicians" },
+              { icon: Calendar, title: "AMC & Care Plans", desc: "Comprehensive maintenance & timely filter checks" },
+              { icon: Zap, title: "Fast 24h Resolution", desc: "Express support for active AMC subscribers" }
+            ].map((badge, idx) => (
+              <div key={idx} className="flex flex-col items-center text-center group hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center mb-3.5 group-hover:bg-primary/20 group-hover:border-primary/30 transition-all duration-300">
+                  <badge.icon className="w-6 h-6 text-secondary group-hover:text-primary transition-colors" />
+                </div>
+                <h4 className="text-[13px] font-bold text-white mb-1 tracking-tight">{badge.title}</h4>
+                <p className="text-[11px] text-white/55 leading-relaxed max-w-[150px]">{badge.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* 4. MAIN FOOTER CONTENT GRID */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 pb-10 border-b border-white/10">
             
-            {/* Brand Column */}
-            <div className="lg:col-span-4">
-              <Link to="/" className="inline-flex items-center gap-2.5 font-heading font-extrabold text-white text-2xl mb-5">
+            {/* Column 1: Company Information */}
+            <div className="lg:col-span-4 flex flex-col items-start text-left">
+              <Link to="/" className="inline-flex items-center gap-2.5 font-heading font-extrabold text-white text-xl sm:text-2xl mb-4 min-h-[44px]">
                 <span className="logo-mark !border-white/80" aria-hidden="true" />
                 Aquapure
               </Link>
-              <p className="text-[14px] text-white/50 leading-relaxed mb-6 max-w-[280px]">
-                India's most trusted multi-stage water purification systems. Engineered for purity, designed for your home.
+              <p className="text-[13px] sm:text-[14px] text-white/60 leading-relaxed mb-6 max-w-sm">
+                India's premier multi-stage water purification brand. Engineered for standard tap, borewell, and tankers to provide pure, healthy drinking water.
               </p>
-              
-              {/* Trust Badges */}
-              <div className="flex flex-wrap gap-3 mb-6">
-                <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                  <Award className="w-3.5 h-3.5 text-secondary" />
-                  <span className="text-[11px] font-bold text-white/80">WQA Certified</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                  <Shield className="w-3.5 h-3.5 text-secondary" />
-                  <span className="text-[11px] font-bold text-white/80">NSF/ANSI 58</span>
-                </div>
-                <div className="flex items-center gap-1.5 bg-white/10 backdrop-blur-sm px-3 py-1.5 rounded-full">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-secondary" />
-                  <span className="text-[11px] font-bold text-white/80">ISI Approved</span>
+
+              {/* Business Hours */}
+              <div className="flex gap-2.5 items-start text-[12.5px] text-white/70 mb-6 bg-white/5 border border-white/10 p-4 rounded-2xl w-full max-w-sm">
+                <Clock className="w-4.5 h-4.5 text-secondary flex-shrink-0 mt-0.5" />
+                <div>
+                  <h5 className="font-bold text-white text-[13px] mb-1">Service & Support Hours</h5>
+                  <p className="mb-0.5">Mon - Sat: 9:00 AM - 7:00 PM</p>
+                  <p>Sun: 10:00 AM - 4:00 PM (Emergency AMC support)</p>
                 </div>
               </div>
 
-              {/* Contact Info */}
-              <div className="flex flex-col gap-3 text-[13px] text-white/50">
-                <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2.5 hover:text-secondary transition-colors">
-                  <MapPin className="w-4 h-4 flex-shrink-0" />
-                  <span>Bengaluru, Karnataka, India</span>
-                </a>
-                <a href="tel:+918049832700" className="flex items-center gap-2.5 hover:text-secondary transition-colors">
-                  <Phone className="w-4 h-4 flex-shrink-0" />
-                  <span>+91 80 4983 2700</span>
-                </a>
-                <a href="mailto:support@aquapurewater.in" className="flex items-center gap-2.5 hover:text-secondary transition-colors">
-                  <Mail className="w-4 h-4 flex-shrink-0" />
-                  <span>support@aquapurewater.in</span>
-                </a>
-              </div>
-
-              {/* Social Links */}
-              <div className="flex gap-2 mt-6">
+              {/* Social Media Links */}
+              <div className="flex gap-2.5">
                 {[
-                  { icon: Facebook, label: 'Facebook' },
-                  { icon: Twitter, label: 'Twitter' },
-                  { icon: Instagram, label: 'Instagram' },
-                  { icon: Youtube, label: 'YouTube' },
-                  { icon: Linkedin, label: 'LinkedIn' }
-                ].map(({ icon: Icon, label }) => (
+                  { icon: Facebook, label: 'Facebook', url: 'https://facebook.com' },
+                  { icon: Twitter, label: 'Twitter', url: 'https://twitter.com' },
+                  { icon: Instagram, label: 'Instagram', url: 'https://instagram.com' },
+                  { icon: Youtube, label: 'YouTube', url: 'https://youtube.com' },
+                  { icon: Linkedin, label: 'LinkedIn', url: 'https://linkedin.com' }
+                ].map((social) => (
                   <a
-                    key={label}
-                    href="#"
-                    aria-label={label}
-                    className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white/60 hover:bg-secondary hover:text-white transition-all duration-300"
+                    key={social.label}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="w-10 h-10 min-w-[40px] min-h-[40px] rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-white/60 hover:bg-secondary hover:text-white hover:border-secondary hover:scale-105 transition-all duration-300"
                   >
-                    <Icon className="w-4 h-4" />
+                    <social.icon className="w-4.5 h-4.5" />
                   </a>
                 ))}
               </div>
             </div>
 
-            {/* Products Column */}
-            <div className="lg:col-span-2 lg:col-start-6">
-              <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-wider mb-5 font-heading">Products</h4>
-              <div className="flex flex-col gap-3 text-[13.5px]">
-                <Link to="/products/countertop-pro" className="text-white/60 hover:text-secondary transition-colors">Countertop Pro</Link>
-                <Link to="/products/whole-home" className="text-white/60 hover:text-secondary transition-colors">Whole Home RO+UV</Link>
-                <Link to="/products/under-sink-compact" className="text-white/60 hover:text-secondary transition-colors">Under-Sink Compact</Link>
-                <Link to="/products/water-softeners" className="text-white/60 hover:text-secondary transition-colors">Water Softeners</Link>
-                <Link to="/products" className="text-secondary font-semibold hover:text-white transition-colors inline-flex items-center gap-1 mt-1">
-                  View All <ArrowRight className="w-3 h-3" />
-                </Link>
+            {/* Column 2: Navigation Links (Responsively collapses into accordions on mobile) */}
+            <div className="lg:col-span-5 flex flex-col gap-4 text-left">
+              
+              {/* DESKTOP VIEW LAYOUT */}
+              <div className="hidden md:grid md:grid-cols-3 gap-6">
+                <div>
+                  <h4 className="text-[11px] font-bold text-white/50 uppercase tracking-widest mb-4 font-heading">Products</h4>
+                  <ul className="flex flex-col gap-2.5 text-[12.5px]">
+                    {productLinks.map((link) => (
+                      <li key={link.label}>
+                        <Link to={link.path} className="text-white/70 hover:text-secondary transition-colors py-0.5 block">{link.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-[11px] font-bold text-white/50 uppercase tracking-widest mb-4 font-heading">Support & Care</h4>
+                  <ul className="flex flex-col gap-2.5 text-[12.5px]">
+                    {supportLinks.map((link) => (
+                      <li key={link.label}>
+                        <Link to={link.path} className="text-white/70 hover:text-secondary transition-colors py-0.5 block">{link.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="text-[11px] font-bold text-white/50 uppercase tracking-widest mb-4 font-heading">Quick Links</h4>
+                  <ul className="flex flex-col gap-2.5 text-[12.5px]">
+                    {quickLinks.map((link) => (
+                      <li key={link.label}>
+                        <Link to={link.path} className="text-white/70 hover:text-secondary transition-colors py-0.5 block">{link.label}</Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              {/* MOBILE VIEW ACCORDION LAYOUT */}
+              <div className="md:hidden flex flex-col gap-2">
+                {[
+                  { title: "Product Categories", id: "products", links: productLinks },
+                  { title: "Support & Services", id: "support", links: supportLinks },
+                  { title: "Quick Links", id: "quick", links: quickLinks }
+                ].map((section) => (
+                  <div key={section.id} className="border border-white/10 rounded-2xl overflow-hidden bg-white/5">
+                    <button
+                      onClick={() => toggleSection(section.id)}
+                      className="w-full py-4 px-5 text-left flex items-center justify-between text-[14px] font-bold text-white hover:bg-white/5 transition-colors"
+                    >
+                      <span>{section.title}</span>
+                      {openSection === section.id ? (
+                        <ChevronDown className="w-4 h-4 text-secondary rotate-180 transition-transform" />
+                      ) : (
+                        <ChevronDown className="w-4 h-4 text-white/60 transition-transform" />
+                      )}
+                    </button>
+                    
+                    <AnimatePresence initial={false}>
+                      {openSection === section.id && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="overflow-hidden border-t border-white/5 bg-black/10"
+                        >
+                          <ul className="py-3 px-5 flex flex-col gap-3 text-[13px]">
+                            {section.links.map((link) => (
+                              <li key={link.label}>
+                                <Link 
+                                  to={link.path} 
+                                  onClick={() => setOpenSection(null)} 
+                                  className="text-white/70 hover:text-secondary block py-0.5"
+                                >
+                                  {link.label}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Solutions Column */}
-            <div className="lg:col-span-2">
-              <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-wider mb-5 font-heading">Solutions</h4>
-              <div className="flex flex-col gap-3 text-[13.5px]">
-                <Link to="/water-problems" className="text-white/60 hover:text-secondary transition-colors">High TDS Water</Link>
-                <Link to="/water-problems" className="text-white/60 hover:text-secondary transition-colors">Hard Ground Water</Link>
-                <Link to="/water-problems" className="text-white/60 hover:text-secondary transition-colors">Iron & Rust Issues</Link>
-                <Link to="/water-problems" className="text-white/60 hover:text-secondary transition-colors">Bacteria & Pathogens</Link>
-                <Link to="/industries" className="text-white/60 hover:text-secondary transition-colors">Industry Solutions</Link>
+            {/* Column 3: Newsletter & Direct Contact */}
+            <div className="lg:col-span-3 flex flex-col gap-6 text-left">
+              <div>
+                <h4 className="text-[11px] font-bold text-white/50 uppercase tracking-widest mb-3.5 font-heading">Subscribe</h4>
+                <p className="text-[12.5px] text-white/60 leading-relaxed mb-4">
+                  Stay updated with healthy water tips, filter replacement reminders, and special discount offers.
+                </p>
+                {subscribed ? (
+                  <div className="bg-success/15 border border-success/30 px-4 py-3 rounded-2xl text-success font-semibold text-[13px] text-center">
+                    Thank you! Subscribed successfully.
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubscribe} className="flex gap-2">
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="Your Email"
+                      className="flex-1 min-w-0 px-4 py-2.5 text-[13px] text-white placeholder-white/40 bg-white/5 border border-white/10 rounded-xl focus:border-secondary outline-none transition-colors"
+                    />
+                    <button 
+                      type="submit"
+                      className="w-10 h-10 flex items-center justify-center bg-secondary hover:bg-primary text-white rounded-xl hover:shadow-lg hover:shadow-secondary/25 transition-all"
+                      aria-label="Subscribe"
+                    >
+                      <ArrowRight className="w-4.5 h-4.5" />
+                    </button>
+                  </form>
+                )}
               </div>
-            </div>
 
-            {/* Support Column */}
-            <div className="lg:col-span-2">
-              <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-wider mb-5 font-heading">Support</h4>
-              <div className="flex flex-col gap-3 text-[13.5px]">
-                <Link to="/book-water-test" className="text-white/60 hover:text-secondary transition-colors">Free Water Test</Link>
-                <Link to="/book-service" className="text-white/60 hover:text-secondary transition-colors">Book Installation</Link>
-                <Link to="/book-service" className="text-white/60 hover:text-secondary transition-colors">AMC Plans</Link>
-                <Link to="/warranty" className="text-white/60 hover:text-secondary transition-colors">Warranty Info</Link>
-                <Link to="/faq" className="text-white/60 hover:text-secondary transition-colors">Help & FAQs</Link>
-              </div>
-            </div>
-
-            {/* Company Column */}
-            <div className="lg:col-span-2">
-              <h4 className="text-[11px] font-bold text-white/40 uppercase tracking-wider mb-5 font-heading">Company</h4>
-              <div className="flex flex-col gap-3 text-[13.5px]">
-                <Link to="/about" className="text-white/60 hover:text-secondary transition-colors">About Us</Link>
-                <Link to="/testimonials" className="text-white/60 hover:text-secondary transition-colors">Customer Reviews</Link>
-                <Link to="/services" className="text-white/60 hover:text-secondary transition-colors">Our Services</Link>
-                <Link to="/contact" className="text-white/60 hover:text-secondary transition-colors">Contact Us</Link>
+              {/* Direct Address & Map Link */}
+              <div>
+                <h4 className="text-[11px] font-bold text-white/50 uppercase tracking-widest mb-3 font-heading">Address</h4>
+                <div className="flex flex-col gap-2.5 text-[12.5px] text-white/70">
+                  <div className="flex items-start gap-2.5">
+                    <MapPin className="w-4.5 h-4.5 text-secondary flex-shrink-0 mt-0.5" />
+                    <p className="leading-relaxed">
+                      Plot No. 42, Sector-4, HSR Layout, Bengaluru, Karnataka - 560102
+                    </p>
+                  </div>
+                  <a 
+                    href="https://maps.google.com/?q=Aquapure+Water+Systems+Bengaluru" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-flex items-center gap-1.5 text-secondary hover:text-primary transition-colors font-semibold self-start"
+                  >
+                    <span>View on Google Maps</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
             </div>
 
           </div>
 
-          {/* Footer Bottom Bar */}
-          <div className="pt-8 border-t border-white/10">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-              <p className="text-[12px] text-white/40 text-center md:text-left">
-                © {new Date().getFullYear()} Aquapure Water Systems Pvt. Ltd. All rights reserved.
-              </p>
-              <div className="flex flex-wrap justify-center gap-6 text-[12px] text-white/40">
+          {/* 5. BOTTOM BAR (PAYMENT METHODS & LEGAL) */}
+          <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            {/* Copyright */}
+            <div className="flex flex-col items-center md:items-start gap-1.5 text-[12px] text-white/40">
+              <p>© {new Date().getFullYear()} Aquapure Water Systems Pvt. Ltd. All rights reserved.</p>
+              <div className="flex flex-wrap gap-x-4 gap-y-1 justify-center">
                 <Link to="/privacy-policy" className="hover:text-secondary transition-colors">Privacy Policy</Link>
                 <Link to="/terms-conditions" className="hover:text-secondary transition-colors">Terms of Service</Link>
-                <Link to="/warranty" className="hover:text-secondary transition-colors">Warranty Policy</Link>
+                <a href="#" className="hover:text-secondary transition-colors">Shipping Policy</a>
+                <a href="#" className="hover:text-secondary transition-colors">Return Policy</a>
+                <a href="#" className="hover:text-secondary transition-colors">Sitemap</a>
               </div>
             </div>
-            
-            {/* Made with love */}
-            <div className="mt-6 text-center">
-              <p className="text-[11px] text-white/30 flex items-center justify-center gap-1">
-                Crafted with <Heart className="w-3 h-3 text-secondary/60 fill-secondary/60" /> for pure water access across India
-              </p>
+
+            {/* Payment Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-2 border border-white/5 bg-white/5 px-4 py-2 rounded-2xl">
+              <span className="text-[10px] font-bold text-white/30 uppercase tracking-wider mr-1.5">Secure Payments:</span>
+              <div className="flex gap-2">
+                <span className="text-[9.5px] font-bold text-white/60 bg-white/5 border border-white/10 px-2.5 py-1 rounded">UPI</span>
+                <span className="text-[9.5px] font-bold text-white/60 bg-white/5 border border-white/10 px-2.5 py-1 rounded">Visa</span>
+                <span className="text-[9.5px] font-bold text-white/60 bg-white/5 border border-white/10 px-2.5 py-1 rounded">Mastercard</span>
+                <span className="text-[9.5px] font-bold text-white/60 bg-white/5 border border-white/10 px-2.5 py-1 rounded">RuPay</span>
+                <span className="text-[9.5px] font-bold text-white/60 bg-white/5 border border-white/10 px-2.5 py-1 rounded">Net Banking</span>
+              </div>
             </div>
+
           </div>
+
         </div>
       </div>
+
+      {/* 6. FLOATING BACK TO TOP BUTTON */}
+      <AnimatePresence>
+        {showBackToTop && (
+          <motion.button
+            initial={{ opacity: 0, scale: 0.8, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.8, y: 20 }}
+            onClick={scrollToTop}
+            className="fixed bottom-6 right-6 z-[90] w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary text-white flex items-center justify-center shadow-lg hover:shadow-primary/35 hover:scale-110 active:scale-95 transition-all duration-300 focus:outline-none"
+            aria-label="Back to top"
+          >
+            <ArrowUp className="w-5.5 h-5.5" />
+          </motion.button>
+        )}
+      </AnimatePresence>
+
     </footer>
   );
 };

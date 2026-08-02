@@ -117,12 +117,12 @@ export const Industries: React.FC = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-10 max-w-3xl mx-auto">
+      <div className="flex flex-wrap justify-center gap-2 md:gap-3 mb-8 sm:mb-10 max-w-3xl mx-auto">
         {industries.map((ind) => (
           <button
             key={ind.id}
             onClick={() => setActiveTab(ind.id)}
-            className={`px-5 py-2.5 rounded-full text-[13.5px] font-semibold border transition-all duration-300 ${
+            className={`px-4 sm:px-5 py-2.5 rounded-full text-[12px] sm:text-[13.5px] font-semibold border transition-all duration-300 min-h-[40px] sm:min-h-[44px] ${
               activeTab === ind.id
                 ? "bg-navy text-white border-navy shadow-sm"
                 : "bg-paper text-ink-soft border-line/15 hover:bg-mist/35 hover:text-navy"
@@ -134,7 +134,7 @@ export const Industries: React.FC = () => {
       </div>
 
       {/* Tab Content Card */}
-      <div className="bg-paper border border-line/10 rounded-radius p-6 md:p-10 shadow-sm max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+      <div className="bg-paper border border-line/10 rounded-radius p-5 sm:p-6 md:p-10 shadow-sm max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-start">
         
         {/* Left Info Column (7 Cols) */}
         <div className="md:col-span-8 flex flex-col gap-6">
